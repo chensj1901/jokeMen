@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface SJFunction : NSObject
-void alert(NSString* string);
++(NSString *)dateFormat:(NSTimeInterval)date;
 @end
+
+void alert(NSString* string);

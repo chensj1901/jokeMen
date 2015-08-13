@@ -10,6 +10,39 @@
 
 @implementation SJFunction
 
++(NSString *)dateFormat:(NSTimeInterval)date{
+    NSString *dateFormat;
+    
+    int secondPassed=[[NSDate date]timeIntervalSince1970]-date;
+    if (secondPassed<0) {
+        dateFormat=[NSString stringWithFormat:@"刚刚"];
+    }
+    else if (secondPassed<60) {
+        dateFormat=[NSString stringWithFormat:@"刚刚"];
+    }
+    else if (secondPassed<3600) {
+        dateFormat=[NSString stringWithFormat:@"%d分钟前",secondPassed/60];
+    }
+    else if(secondPassed<60*60*24){
+        dateFormat=[NSString stringWithFormat:@"%d小时前",secondPassed/(60*60)];
+    }
+    else if(secondPassed<60*60*24*30){
+        dateFormat=[NSString stringWithFormat:@"%d天前",secondPassed/(60*60*24)];
+    }
+    else{
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        
+        NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:date]];
+        dateFormat=currentDateStr;
+    }
+    
+    return dateFormat;
+}
+
+@end
+
+
 void alert(NSString* string)
 {
     @autoreleasepool {
@@ -42,4 +75,3 @@ void alert(NSString* string)
     }
 }
 
-@end

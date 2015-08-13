@@ -24,6 +24,10 @@
 		04A159371B6FC4BE00C085EE /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A1592B1B6FC4BE00C085EE /* grayArrow@2x.png */; };
 		04A159381B6FC4BE00C085EE /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A1592C1B6FC4BE00C085EE /* whiteArrow.png */; };
 		04A159391B6FC4BE00C085EE /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A1592D1B6FC4BE00C085EE /* whiteArrow@2x.png */; };
+		3346AEBB1B7CC8E900C24D73 /* SJJokeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3346AEBA1B7CC8E900C24D73 /* SJJokeCell.m */; };
+		3346AEBE1B7CC8FD00C24D73 /* SJJoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3346AEBD1B7CC8FD00C24D73 /* SJJoke.m */; };
+		3346AEC11B7CC91400C24D73 /* SJJokeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3346AEC01B7CC91400C24D73 /* SJJokeService.m */; };
+		3346AEC41B7CD31B00C24D73 /* 频道bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3346AEC31B7CD31B00C24D73 /* 频道bg@2x.png */; };
 		3350E6FD1B71ADAA00416935 /* RTLabel+SJLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350E6FC1B71ADAA00416935 /* RTLabel+SJLabel.m */; };
 		3350E7061B71C07A00416935 /* SJRecommendAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350E7011B71C07A00416935 /* SJRecommendAppView.m */; };
 		3350E7071B71C07A00416935 /* SJRecommendAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350E7031B71C07A00416935 /* SJRecommendAppCell.m */; };
@@ -214,6 +218,13 @@
 		04A1592C1B6FC4BE00C085EE /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
 		04A1592D1B6FC4BE00C085EE /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
 		0B47300A00F29DE09C489D53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3346AEB91B7CC8E900C24D73 /* SJJokeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJokeCell.h; sourceTree = "<group>"; };
+		3346AEBA1B7CC8E900C24D73 /* SJJokeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJJokeCell.m; sourceTree = "<group>"; };
+		3346AEBC1B7CC8FD00C24D73 /* SJJoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJoke.h; sourceTree = "<group>"; };
+		3346AEBD1B7CC8FD00C24D73 /* SJJoke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJJoke.m; sourceTree = "<group>"; };
+		3346AEBF1B7CC91400C24D73 /* SJJokeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJokeService.h; sourceTree = "<group>"; };
+		3346AEC01B7CC91400C24D73 /* SJJokeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJJokeService.m; sourceTree = "<group>"; };
+		3346AEC31B7CD31B00C24D73 /* 频道bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "频道bg@2x.png"; sourceTree = "<group>"; };
 		3350E6FB1B71ADAA00416935 /* RTLabel+SJLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTLabel+SJLabel.h"; sourceTree = "<group>"; };
 		3350E6FC1B71ADAA00416935 /* RTLabel+SJLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RTLabel+SJLabel.m"; sourceTree = "<group>"; };
 		3350E7001B71C07A00416935 /* SJRecommendAppView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJRecommendAppView.h; sourceTree = "<group>"; };
@@ -689,6 +700,8 @@
 				33CADDDA1B6F88FF003460BA /* SJIndexView.m */,
 				042C89E41B7119F000974CA5 /* SJSettingCell.h */,
 				042C89E51B7119F000974CA5 /* SJSettingCell.m */,
+				3346AEB91B7CC8E900C24D73 /* SJJokeCell.h */,
+				3346AEBA1B7CC8E900C24D73 /* SJJokeCell.m */,
 				042C89DC1B710B1900974CA5 /* SJSettingView.h */,
 				042C89DD1B710B1900974CA5 /* SJSettingView.m */,
 				042C89DF1B710CAB00974CA5 /* SJTabSwitchView.h */,
@@ -728,6 +741,10 @@
 				04A158EA1B6FAFB600C085EE /* SJURLRequestMethodDefined.h */,
 				33CADDED1B6F90FE003460BA /* SJService.h */,
 				33CADDEE1B6F90FE003460BA /* SJService.m */,
+				3346AEBC1B7CC8FD00C24D73 /* SJJoke.h */,
+				3346AEBD1B7CC8FD00C24D73 /* SJJoke.m */,
+				3346AEBF1B7CC91400C24D73 /* SJJokeService.h */,
+				3346AEC01B7CC91400C24D73 /* SJJokeService.m */,
 				33CADDF31B6F91E2003460BA /* SJHTTPRequestOperationManager.h */,
 				33CADDF41B6F91E2003460BA /* SJHTTPRequestOperationManager.m */,
 				3350E7091B71C08900416935 /* SJRecommendApp.h */,
@@ -967,6 +984,7 @@
 		33CADD711B6F87D5003460BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3346AEC31B7CD31B00C24D73 /* 频道bg@2x.png */,
 				3350E81E1B7236FF00416935 /* 4号圆角屏蔽@2x.png */,
 				3350E81C1B721E4500416935 /* logo@2x.png */,
 				3350E81A1B7216AD00416935 /* 广场模块bg@2x.png */,
@@ -1171,6 +1189,7 @@
 				338EFCD61B70B894005C8EB9 /* InfoPlist.strings in Resources */,
 				3350E7141B71D82B00416935 /* button1@2x.png in Resources */,
 				33CADDE61B6F8DF1003460BA /* 搜索底框_@2x.png in Resources */,
+				3346AEC41B7CD31B00C24D73 /* 频道bg@2x.png in Resources */,
 				338EFCCE1B70B19E005C8EB9 /* adwo_videoPlayerControl.html in Resources */,
 				338EFCFC1B70CD0A005C8EB9 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				04A159341B6FC4BE00C085EE /* blueArrow.png in Resources */,
@@ -1281,6 +1300,7 @@
 				3350E8071B720D1500416935 /* mongoose.c in Sources */,
 				33CADDC81B6F881E003460BA /* SJFunction.m in Sources */,
 				3350E7071B71C07A00416935 /* SJRecommendAppCell.m in Sources */,
+				3346AEC11B7CC91400C24D73 /* SJJokeService.m in Sources */,
 				338EFCAD1B70B19E005C8EB9 /* AdsMogoAdapterAdwoVideoAd.m in Sources */,
 				33CADE0A1B6F991E003460BA /* SJWebViewController.m in Sources */,
 				33CADDCD1B6F881E003460BA /* UIButton+SJButton.m in Sources */,
@@ -1309,6 +1329,7 @@
 				33CADDD81B6F88E0003460BA /* SJIndexViewController.m in Sources */,
 				04A1592E1B6FC4BE00C085EE /* EGORefreshTableHeaderView.m in Sources */,
 				3350E80D1B720D1500416935 /* CJSONSerializedData.m in Sources */,
+				3346AEBE1B7CC8FD00C24D73 /* SJJoke.m in Sources */,
 				3350E6FD1B71ADAA00416935 /* RTLabel+SJLabel.m in Sources */,
 				042C89DE1B710B1900974CA5 /* SJSettingView.m in Sources */,
 				042C89E61B7119F000974CA5 /* SJSettingCell.m in Sources */,
@@ -1321,6 +1342,7 @@
 				3373B3FD1B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobAds.m in Sources */,
 				3350E80F1B720D1500416935 /* NSDictionary_JSONExtensions.m in Sources */,
 				338EFAAB1B70A33C005C8EB9 /* SJButtonActionSheet.m in Sources */,
+				3346AEBB1B7CC8E900C24D73 /* SJJokeCell.m in Sources */,
 				3373B3FE1B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobFullAds.m in Sources */,
 				3350E80C1B720D1500416935 /* CJSONSerialization.m in Sources */,
 				33CADDE21B6F8DD3003460BA /* SJSearchBar.m in Sources */,

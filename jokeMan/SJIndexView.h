@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "SJSearchBar.h"
+#import "PullTableView.h"
 
 @interface SJIndexView : UIView
-
+@property(nonatomic,readonly)PullTableView *detailTableView;
 @end
