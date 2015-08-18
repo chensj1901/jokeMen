@@ -20,6 +20,8 @@
     CGRect _lineOneViewRect;
     CGRect _lineTwoViewRect;
     CGRect _bottomViewRect;
+    CGRect _listenBtnRect;
+    CGRect _lineBottomViewRect;
 }
 
 
@@ -32,6 +34,8 @@
 @synthesize lineOneView=_lineOneView;
 @synthesize lineTwoView=_lineTwoView;
 @synthesize bottomView=_bottomView;
+@synthesize listenBtn=_listenBtn;
+@synthesize lineBottomView=_lineBottomView;
 
 
 #pragma mark - 初始化
@@ -48,12 +52,14 @@
     _titleImageViewRect= CGRectMake(7, 7, WIDTH-14, 30);
     _usernameLabelRect= CGRectMake(7, 0, (WIDTH-28)/2, 30);
     _timeLabelRect= CGRectMake((WIDTH-28)/2+7, 0, (WIDTH-28)/2, 30);
-    _contentLabelRect= CGRectMake(7, 30, WIDTH-14, 0);
+    _contentLabelRect= CGRectMake(7, 30, CGRectGetWidth(_titleImageViewRect)-14, 0);
     _bottomViewRect= CGRectMake(0, 0, (WIDTH-28), 40);
-    _likeBtnRect= CGRectMake(7, 0,  (WIDTH-28)/2, 40);
-    _shareBtnRect= CGRectMake((WIDTH-28)/2+7, 0,  (WIDTH-28)/2, 40);
-    _lineOneViewRect= CGRectMake(WIDTH/2-0.5, 0, 0.5, 40);
-    _lineTwoViewRect= CGRectMake(0, 0, WIDTH-14, 0.5);
+    _likeBtnRect= CGRectMake(7, 0,  (WIDTH-28)/3, 40);
+    _shareBtnRect= CGRectMake((WIDTH-28)/3+7, 0,  (WIDTH-28)/3, 40);
+    _listenBtnRect= CGRectMake((WIDTH-28)/3*2+7, 0, (WIDTH-28)/3, 40);
+    _lineOneViewRect= CGRectMake(WIDTH/3-0.5, 0, 0.5, 40);
+    _lineTwoViewRect= CGRectMake(WIDTH/3*2.-0.5, 0, 0.5, 40);
+    _lineBottomViewRect=CGRectMake(0, 0, WIDTH-14, 0.5);
 }
 
 -(void)loadUI{
@@ -64,8 +70,10 @@
     [self.titleImageView addSubview:self.bottomView];
     [self.bottomView addSubview:self.likeBtn];
     [self.bottomView addSubview:self.shareBtn];
+    [self.bottomView addSubview:self.listenBtn];
     [self.bottomView addSubview:self.lineOneView];
     [self.bottomView addSubview:self.lineTwoView];
+    [self.bottomView addSubview:self.lineBottomView];
 }
 
 #pragma mark - 属性定义
@@ -74,6 +82,7 @@
     if (!_titleImageView) {
         _titleImageView=[[UIImageView alloc]initWithFrame:_titleImageViewRect];
         [_titleImageView quicklySetBackgroundImageName:@"频道bg.png"];
+        _titleImageView.userInteractionEnabled=YES;
     }
     return _titleImageView;
 }
@@ -106,7 +115,7 @@
     if (!_likeBtn) {
         _likeBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         _likeBtn.frame=_likeBtnRect;
-//        [_likeBtn quicklySetNormalImageNamed:<#(NSString *)#> highlightImageNamed:<#(NSString *)#> selectedImageNamed:<#(NSString *)#>];
+        [_likeBtn quicklySetNormalImageNamed:@"likeBtn" highlightImageNamed:nil selectedImageNamed:@"likeBtn_s"];
         [_likeBtn quicklySetFontPoint:14 textColorHex:@"62707d" textAlignment:NSTextAlignmentCenter];
     }
     return _likeBtn;
@@ -116,11 +125,22 @@
     if (!_shareBtn) {
         _shareBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         _shareBtn.frame=_shareBtnRect;
-//        [_shareBtn quicklySetNormalImageNamed:<#(NSString *)#> highlightImageNamed:<#(NSString *)#> selectedImageNamed:<#(NSString *)#>];
+        [_shareBtn quicklySetNormalImageNamed:@"shareBtn" highlightImageNamed:nil selectedImageNamed:nil];
         [_shareBtn quicklySetFontPoint:14 textColorHex:@"62707d" textAlignment:NSTextAlignmentCenter];
     }
     return _shareBtn;
 }
+
+-(UIButton *)listenBtn{
+    if (!_listenBtn) {
+        _listenBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        _listenBtn.frame=_listenBtnRect;
+        [_listenBtn quicklySetNormalImageNamed:@"listenBtn" highlightImageNamed:nil selectedImageNamed:nil];
+        [_listenBtn quicklySetFontPoint:14 textColorHex:@"62707d" textAlignment:NSTextAlignmentCenter title:@"爷只想听"];
+    }
+    return _listenBtn;
+}
+
 
 -(UIView *)lineOneView{
     if (!_lineOneView) {
@@ -138,6 +158,15 @@
     return _lineTwoView;
 }
 
+-(UIView *)lineBottomView{
+    if (!_lineBottomView) {
+        _lineBottomView=[[UIView alloc]initWithFrame:_lineBottomViewRect];
+        _lineBottomView.backgroundColorHex=@"eeF0F0";
+    }
+    return _lineBottomView;
+}
+
+
 -(UIView *)bottomView{
     if (!_bottomView) {
         _bottomView=[[UIView alloc]initWithFrame:_bottomViewRect];
@@ -152,8 +181,10 @@
     self.usernameLabel.text=joke.username;
     self.timeLabel.text=[SJFunction dateFormat:joke.time];
     self.contentLabel.text=joke.content;
-    [self.likeBtn setTitle:[NSString stringWithFormat:@"%d",joke.likeCount] forState:UIControlStateNormal];
-    [self.shareBtn setTitle:[NSString stringWithFormat:@"%d",joke.shareCount] forState:UIControlStateNormal];
+    [self.likeBtn setTitle:[NSString stringWithFormat:@"%ld",(long)joke.likeCount] forState:UIControlStateNormal];
+    [self.shareBtn setTitle:[NSString stringWithFormat:@"%ld",(long)joke.shareCount] forState:UIControlStateNormal];
+    self.likeBtn.selected=joke.liked;
+    
     CGSize contentSize=[SJJokeCell contentHeightForContent:joke.content];
     [self.contentLabel quicklySetHeight:contentSize.height+20];
     [self.titleImageView quicklySetHeight:contentSize.height+90];

@@ -12,7 +12,7 @@
 /**
  *	@brief
  */
-@property(nonatomic,readonly)NSInteger id;
+@property(nonatomic,readonly)NSInteger _id;
 
 /**
  *	@brief
@@ -27,17 +27,19 @@
 /**
  *	@brief
  */
-@property(nonatomic,readonly)NSInteger likeCount;
+@property(nonatomic)NSInteger likeCount;
 
 /**
  *	@brief
  */
-@property(nonatomic,readonly)NSInteger shareCount;
+@property(nonatomic)NSInteger shareCount;
 
 /**
  *	@brief
  */
 @property(nonatomic,readonly)NSTimeInterval time;
+
+@property(nonatomic)BOOL liked;
 
 -(id)initWithRemoteDictionary:(NSDictionary *)dictionary;
 

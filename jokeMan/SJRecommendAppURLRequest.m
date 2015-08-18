@@ -12,7 +12,7 @@
 +(void)apiQueryAppLinkWithSuccess:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure{
     @try {
         SJHTTPRequestOperationManager *manager=[SJHTTPRequestOperationManager manager];
-        manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
+
         [manager GET:@"http://1.jhwg.sinaapp.com/myAppList.php" parameters:nil cacheMethod:SJCacheMethodFail success:success failure:failure];
     }
     @catch (NSException *exception) {

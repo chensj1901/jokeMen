@@ -8,7 +8,11 @@
 
 #import "SJService.h"
 #import "SJJoke.h"
+#import "SJURLRequestMethodDefined.h"
 
 @interface SJJokeService : SJService
 @property(nonatomic)NSMutableArray *jokes;
+-(void)loadFirstJokeWithcacheMethod:(SJCacheMethod)cacheMethod success:(SJServiceSuccessBlock) success fail:(SJServiceFailBlock)fail;
+
+-(void)loadMoreJokeWithSuccess:(SJServiceSuccessBlock) success fail:(SJServiceFailBlock)fail;
 @end

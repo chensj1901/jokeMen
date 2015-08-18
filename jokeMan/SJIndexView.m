@@ -42,6 +42,7 @@
 -(PullTableView *)detailTableView{
     if (!_detailTableView) {
         _detailTableView=[[PullTableView alloc]initWithFrame:_detailTableViewRect loadMoreSwitch:YES refreshSwitch:YES];
+        _detailTableView.contentInset=UIEdgeInsetsMake(34, 0, 0, 0);
     }
     return _detailTableView;
 }

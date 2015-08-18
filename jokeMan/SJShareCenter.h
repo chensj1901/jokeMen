@@ -11,4 +11,5 @@
 
 @interface SJShareCenter : NSObject
 +(void)shareTo:(ShareType)shareType url:(NSString *)url content:(NSString *)content;
++(void)shareTo:(ShareType)shareType content:(NSString *)content;
 @end

@@ -32,7 +32,7 @@
                                          title:titleStr
                                            url:urlStr
                                    description:@""
-                                     mediaType:SSPublishContentMediaTypeNews];
+                                     mediaType:url&&url.length>0?SSPublishContentMediaTypeNews:SSPublishContentMediaTypeText];
     [ShareSDK shareContent:content type:shareType authOptions:nil shareOptions:nil statusBarTips:NO result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end){
         
         if (state==SSResponseStateSuccess) {
@@ -42,5 +42,9 @@
 //            alert(error.errorDescription);
 //        }
     }];
+}
+
++(void)shareTo:(ShareType)shareType content:(NSString *)content{
+    [self shareTo:shareType url:nil content:content];
 }
 @end

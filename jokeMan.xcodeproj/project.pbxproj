@@ -24,6 +24,7 @@
 		04A159371B6FC4BE00C085EE /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A1592B1B6FC4BE00C085EE /* grayArrow@2x.png */; };
 		04A159381B6FC4BE00C085EE /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A1592C1B6FC4BE00C085EE /* whiteArrow.png */; };
 		04A159391B6FC4BE00C085EE /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A1592D1B6FC4BE00C085EE /* whiteArrow@2x.png */; };
+		3312A6461B82F80800669EAB /* SJJokeURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3312A6451B82F80800669EAB /* SJJokeURLRequest.m */; };
 		3346AEBB1B7CC8E900C24D73 /* SJJokeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3346AEBA1B7CC8E900C24D73 /* SJJokeCell.m */; };
 		3346AEBE1B7CC8FD00C24D73 /* SJJoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3346AEBD1B7CC8FD00C24D73 /* SJJoke.m */; };
 		3346AEC11B7CC91400C24D73 /* SJJokeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3346AEC01B7CC91400C24D73 /* SJJokeService.m */; };
@@ -187,6 +188,10 @@
 		33CADE041B6F98D6003460BA /* SJSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADE021B6F98D6003460BA /* SJSwitchViewController.m */; };
 		33CADE0A1B6F991E003460BA /* SJWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADE091B6F991E003460BA /* SJWebViewController.m */; };
 		33CADE0D1B6F9933003460BA /* SJWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADE0C1B6F9933003460BA /* SJWebView.m */; };
+		33EAFE5D1B83595E00099AE8 /* likeBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EAFE5B1B83595E00099AE8 /* likeBtn@2x.png */; };
+		33EAFE5E1B83595E00099AE8 /* shareBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EAFE5C1B83595E00099AE8 /* shareBtn@2x.png */; };
+		33EAFE601B83618D00099AE8 /* likeBtn_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EAFE5F1B83618D00099AE8 /* likeBtn_s@2x.png */; };
+		33EAFE621B83663800099AE8 /* listenBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EAFE611B83663800099AE8 /* listenBtn@2x.png */; };
 		E21E9944A39D407A3F4F309B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E829AD0DD35908807E831233 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +223,8 @@
 		04A1592C1B6FC4BE00C085EE /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
 		04A1592D1B6FC4BE00C085EE /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
 		0B47300A00F29DE09C489D53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3312A6441B82F80800669EAB /* SJJokeURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJokeURLRequest.h; sourceTree = "<group>"; };
+		3312A6451B82F80800669EAB /* SJJokeURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJJokeURLRequest.m; sourceTree = "<group>"; };
 		3346AEB91B7CC8E900C24D73 /* SJJokeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJokeCell.h; sourceTree = "<group>"; };
 		3346AEBA1B7CC8E900C24D73 /* SJJokeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJJokeCell.m; sourceTree = "<group>"; };
 		3346AEBC1B7CC8FD00C24D73 /* SJJoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJoke.h; sourceTree = "<group>"; };
@@ -473,6 +480,10 @@
 		33CADE091B6F991E003460BA /* SJWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJWebViewController.m; sourceTree = "<group>"; };
 		33CADE0B1B6F9933003460BA /* SJWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJWebView.h; sourceTree = "<group>"; };
 		33CADE0C1B6F9933003460BA /* SJWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJWebView.m; sourceTree = "<group>"; };
+		33EAFE5B1B83595E00099AE8 /* likeBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "likeBtn@2x.png"; sourceTree = "<group>"; };
+		33EAFE5C1B83595E00099AE8 /* shareBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shareBtn@2x.png"; sourceTree = "<group>"; };
+		33EAFE5F1B83618D00099AE8 /* likeBtn_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "likeBtn_s@2x.png"; sourceTree = "<group>"; };
+		33EAFE611B83663800099AE8 /* listenBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listenBtn@2x.png"; sourceTree = "<group>"; };
 		6ECF8BF5DF70B463792C5331 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E829AD0DD35908807E831233 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -745,6 +756,8 @@
 				3346AEBD1B7CC8FD00C24D73 /* SJJoke.m */,
 				3346AEBF1B7CC91400C24D73 /* SJJokeService.h */,
 				3346AEC01B7CC91400C24D73 /* SJJokeService.m */,
+				3312A6441B82F80800669EAB /* SJJokeURLRequest.h */,
+				3312A6451B82F80800669EAB /* SJJokeURLRequest.m */,
 				33CADDF31B6F91E2003460BA /* SJHTTPRequestOperationManager.h */,
 				33CADDF41B6F91E2003460BA /* SJHTTPRequestOperationManager.m */,
 				3350E7091B71C08900416935 /* SJRecommendApp.h */,
@@ -984,6 +997,10 @@
 		33CADD711B6F87D5003460BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				33EAFE5B1B83595E00099AE8 /* likeBtn@2x.png */,
+				33EAFE5F1B83618D00099AE8 /* likeBtn_s@2x.png */,
+				33EAFE611B83663800099AE8 /* listenBtn@2x.png */,
+				33EAFE5C1B83595E00099AE8 /* shareBtn@2x.png */,
 				3346AEC31B7CD31B00C24D73 /* 频道bg@2x.png */,
 				3350E81E1B7236FF00416935 /* 4号圆角屏蔽@2x.png */,
 				3350E81C1B721E4500416935 /* logo@2x.png */,
@@ -1170,6 +1187,7 @@
 				338EFCC31B70B19E005C8EB9 /* adwo_videoCloseBtnBig.png in Resources */,
 				33CADDEA1B6F8E08003460BA /* 放大镜_@3x.png in Resources */,
 				338EFD1D1B70E698005C8EB9 /* 返回箭头@2x.png in Resources */,
+				33EAFE621B83663800099AE8 /* listenBtn@2x.png in Resources */,
 				33CADDE91B6F8E08003460BA /* 放大镜_@2x.png in Resources */,
 				338EFAB01B70A3D4005C8EB9 /* 更多_icon_QQ空间.png in Resources */,
 				3350E81B1B7216AD00416935 /* 广场模块bg@2x.png in Resources */,
@@ -1179,6 +1197,7 @@
 				3350E81D1B721E4500416935 /* logo@2x.png in Resources */,
 				04A159351B6FC4BE00C085EE /* blueArrow@2x.png in Resources */,
 				338EFCD41B70B19E005C8EB9 /* adwo_videoTimeRectangleBig.png in Resources */,
+				33EAFE5D1B83595E00099AE8 /* likeBtn@2x.png in Resources */,
 				3350E8051B720D1500416935 /* baidumobadsdk.bundle in Resources */,
 				04A159381B6FC4BE00C085EE /* whiteArrow.png in Resources */,
 				338EFAB11B70A3D4005C8EB9 /* 更多_icon_朋友圈.png in Resources */,
@@ -1216,6 +1235,8 @@
 				338EFCDC1B70C2C4005C8EB9 /* 刷新底_@2x.png in Resources */,
 				338EFCB91B70B19E005C8EB9 /* adwo_progress.png in Resources */,
 				338EFAB21B70A3D4005C8EB9 /* 更多_icon_微博.png in Resources */,
+				33EAFE601B83618D00099AE8 /* likeBtn_s@2x.png in Resources */,
+				33EAFE5E1B83595E00099AE8 /* shareBtn@2x.png in Resources */,
 				3350E81F1B7236FF00416935 /* 4号圆角屏蔽@2x.png in Resources */,
 				338EFCC41B70B19E005C8EB9 /* adwo_videoDetail.png in Resources */,
 				338EFCD21B70B19E005C8EB9 /* adwo_videoSoundBig.png in Resources */,
@@ -1300,6 +1321,7 @@
 				3350E8071B720D1500416935 /* mongoose.c in Sources */,
 				33CADDC81B6F881E003460BA /* SJFunction.m in Sources */,
 				3350E7071B71C07A00416935 /* SJRecommendAppCell.m in Sources */,
+				3312A6461B82F80800669EAB /* SJJokeURLRequest.m in Sources */,
 				3346AEC11B7CC91400C24D73 /* SJJokeService.m in Sources */,
 				338EFCAD1B70B19E005C8EB9 /* AdsMogoAdapterAdwoVideoAd.m in Sources */,
 				33CADE0A1B6F991E003460BA /* SJWebViewController.m in Sources */,

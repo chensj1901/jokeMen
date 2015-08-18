@@ -11,6 +11,9 @@
 
 @implementation SJHTTPRequestOperationManager
 -(AFHTTPRequestOperation *)POST:(NSString *)URLString parameters:(id)parameters cacheMethod:(SJCacheMethod)cacheMethod success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure{
+    
+    self.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
+    
     NSString *hostRequest=[NSString stringWithFormat:@"%@?%@",URLString,[parameters stringValue]];
     
     NSLog(@"%@",hostRequest);
@@ -60,7 +63,7 @@
 
 -(AFHTTPRequestOperation *)GET:(NSString *)URLString parameters:(id)parameters cacheMethod:(SJCacheMethod)cacheMethod  success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure{
     
-    
+    self.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
     NSString *hostRequest=[URLString rangeOfString:@"?"].length==0?[NSString stringWithFormat:@"%@?%@",URLString,[parameters stringValue]]:[NSString stringWithFormat:@"%@&%@",URLString,[parameters stringValue]];
     
     NSLog(@"%@",hostRequest);

@@ -51,7 +51,7 @@
         [self loadUI];
         
         if (IS_IOS7()) {
-            _defaultEdgeInsets=UIEdgeInsetsMake(70, 0, 0, 0);
+            _defaultEdgeInsets=UIEdgeInsetsMake(34, 0, 0, 0);
         }else{
             _defaultEdgeInsets=UIEdgeInsetsMake(40, 0, 0, 0);
         }

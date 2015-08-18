@@ -43,5 +43,5 @@
 if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) \
 {self.edgesForExtendedLayout=0;}
 
-#define MAINVIEW_HEIGHT_HASNAVBAR_NOTABBAR_RECT CGRectMake(0, 0, self.view.frame.size.width,(self.view.frame.size.height-(IS_IOS7()?0:44)))
+#define MAINVIEW_HEIGHT_HASNAVBAR_NOTABBAR_RECT CGRectMake(0, 0, self.view.frame.size.width,(self.view.frame.size.height-(IS_IOS7()?20:64)))
 #endif

@@ -17,8 +17,11 @@
 @property(nonatomic,readonly)UIView *bottomView;
 @property(nonatomic,readonly)UIButton *likeBtn;
 @property(nonatomic,readonly)UIButton *shareBtn;
+@property(nonatomic,readonly)UIButton *listenBtn;
 @property(nonatomic,readonly)UIView *lineOneView;
 @property(nonatomic,readonly)UIView *lineTwoView;
+@property(nonatomic,readonly)UIView *lineBottomView;
+
 
 +(CGFloat)cellHeightWithJoke:(SJJoke *)joke;
 -(void)loadJoke:(SJJoke *)joke;

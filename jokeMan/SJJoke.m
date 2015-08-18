@@ -7,12 +7,13 @@
 //
 
 #import "SJJoke.h"
+#import <SJSettingRecode.h>
 
 @implementation SJJoke
 -(id)initWithRemoteDictionary:(NSDictionary *)dictionary{
     self=[self init];
     if (self) {
-        _id = [[dictionary objectForKey:@"id"]integerValue];
+        __id = [[dictionary objectForKey:@"id"]integerValue];
         _username = [dictionary objectForKey:@"username"];
         _content = [dictionary objectForKey:@"content"];
         _likeCount = [[dictionary objectForKey:@"likeCount"]integerValue];
@@ -25,7 +26,7 @@
 -(id)initWithTest{
     self=[self init];
     if (self) {
-        _id = arc4random()%9999;
+        __id = arc4random()%9999;
         _username = @"Tom";
         _content = @"你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅你好帅";
         _likeCount = 99999;
@@ -34,4 +35,18 @@
     }
     return self;
 }
+
+-(BOOL)liked{
+    return [[SJSettingRecode getSet:[NSString stringWithFormat:@"like_%ld",self._id]]boolValue];
+}
+
+-(void)setLiked:(BOOL)liked{
+    if (liked) {
+        [SJSettingRecode set:[NSString stringWithFormat:@"like_%ld",self._id] value:@"1"];
+    }else{
+        [SJSettingRecode set:[NSString stringWithFormat:@"like_%ld",self._id] value:@"0"];
+    }
+}
+
+
 @end

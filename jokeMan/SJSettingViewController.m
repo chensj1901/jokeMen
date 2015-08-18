@@ -11,10 +11,10 @@
 #import "SJSettingCell.h"
 #import "SJShareCenter.h"
 #import "SJButtonActionSheet.h"
-#import "SJWebViewController.h"
-#import "SJRecommendAppViewController.h"
 #import "WXApi.h"
 #import <TencentOpenAPI/QQApi.h>
+#import "SJWebViewController.h"
+#import "SJRecommendAppViewController.h"
 #import "config.h"
 
 @interface SJSettingViewController ()<UITableViewDataSource,UITableViewDelegate>
