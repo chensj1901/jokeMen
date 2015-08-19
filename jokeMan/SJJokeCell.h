@@ -24,5 +24,5 @@
 
 
 +(CGFloat)cellHeightWithJoke:(SJJoke *)joke;
--(void)loadJoke:(SJJoke *)joke;
+-(void)loadJoke:(SJJoke *)joke isSpeaking:(BOOL)isSpeaking;
 @end

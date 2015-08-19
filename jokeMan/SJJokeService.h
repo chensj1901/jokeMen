@@ -12,6 +12,8 @@
 
 @interface SJJokeService : SJService
 @property(nonatomic)NSMutableArray *jokes;
+-(void)loadFirstRandomJokeWithcacheMethod:(SJCacheMethod)cacheMethod success:(SJServiceSuccessBlock) success fail:(SJServiceFailBlock)fail;
+
 -(void)loadFirstJokeWithcacheMethod:(SJCacheMethod)cacheMethod success:(SJServiceSuccessBlock) success fail:(SJServiceFailBlock)fail;
 
 -(void)loadMoreJokeWithSuccess:(SJServiceSuccessBlock) success fail:(SJServiceFailBlock)fail;

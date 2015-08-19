@@ -29,12 +29,12 @@
 }
 
 
+
 -(void)loadTarget{
     self.tabSwitchView.indexBtn.selected=YES;
     
     [self.tabSwitchView.indexBtn addTarget:self action:@selector(selectIndexVC) forControlEvents:UIControlEventTouchUpInside];
     [self.tabSwitchView.settingBtn addTarget:self action:@selector(selectSettingVC) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 -(void)selectIndexVC{

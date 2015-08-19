@@ -44,19 +44,19 @@
         }];
 }
 
--(UIButton *)quicklyCreateRightItemWithTitle:(NSString*)title titleColorHex:(NSString*)titleColorHex titleHighlightedColorHex:(NSString*)titleHighlightedColorHex selector:(SEL)selector
+-(UIButton *)quicklyCreateRightItemWithTitle:(NSString *)title titleColorHex:(NSString *)titleColorHex titleHighlightedColorHex:(NSString *)titleHighlightedColorHex selector:(SEL)selector{
+    return [self quicklyCreateRightItemWithTitle:title titleColorHex:titleColorHex titleHighlightedColorHex:titleHighlightedColorHex selector:selector target:self];
+}
+
+-(UIButton *)quicklyCreateRightItemWithTitle:(NSString*)title titleColorHex:(NSString*)titleColorHex titleHighlightedColorHex:(NSString*)titleHighlightedColorHex selector:(SEL)selector target:(id)target
 {
     if ([self isKindOfClass:[UIViewController class]]) {
         UIButton *rightBtn =[UIButton buttonWithType:UIButtonTypeCustom];
          rightBtn.frame=CGRectMake([UIScreen mainScreen].bounds.size.width-64, 7, 48, 28);
         
-        [rightBtn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+        [rightBtn addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
         [rightBtn setTitle:title forState:UIControlStateNormal];
         
-        [rightBtn setImage:nil forState:UIControlStateNormal];
-        
-        [rightBtn setBackgroundImage:nil forState:UIControlStateNormal];
-        [rightBtn setBackgroundImage:nil forState:UIControlStateHighlighted];
         if (titleColorHex&&titleColorHex.length==6) {
             [rightBtn setTitleColor:[UIColor colorWithHex:titleColorHex] forState:UIControlStateNormal];
         }

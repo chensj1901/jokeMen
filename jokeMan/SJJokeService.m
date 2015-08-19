@@ -32,6 +32,29 @@
     return _jokes;
 }
 
+
+-(void)loadFirstRandomJokeWithcacheMethod:(SJCacheMethod)cacheMethod success:(SJServiceSuccessBlock) success fail:(SJServiceFailBlock)fail{
+    _page=1;
+    _timeInterval=[[NSDate date]timeIntervalSince1970]-arc4random()%(int)(180*24*3600);
+    NSTimeInterval time=_timeInterval;
+
+    [SJJokeURLRequest apiLoadJokeWithPage:_page time:time cacheMethod:cacheMethod success:^(AFHTTPRequestOperation *op, id dic) {
+        [self.jokes removeAllObjects];
+        for (NSDictionary *dictionary in [dic objectForKey:@"jokes"]) {
+            SJJoke *joke=[[SJJoke alloc]initWithRemoteDictionary:dictionary];
+            [self.jokes addObject:joke];
+        }
+        _page++;
+        if (success) {
+            success();
+        }
+    } failure:^(AFHTTPRequestOperation *op, NSError *error) {
+        if (fail) {
+            fail(error);
+        }
+    }];
+}
+
 -(void)loadFirstJokeWithcacheMethod:(SJCacheMethod)cacheMethod success:(SJServiceSuccessBlock) success fail:(SJServiceFailBlock)fail{
     _page=1;
     _timeInterval=[[NSDate date]timeIntervalSince1970];
@@ -42,6 +65,7 @@
         time=_timeInterval;
     }
     [SJJokeURLRequest apiLoadJokeWithPage:_page time:time cacheMethod:cacheMethod success:^(AFHTTPRequestOperation *op, id dic) {
+        [self.jokes removeAllObjects];
         for (NSDictionary *dictionary in [dic objectForKey:@"jokes"]) {
             SJJoke *joke=[[SJJoke alloc]initWithRemoteDictionary:dictionary];
             [self.jokes addObject:joke];

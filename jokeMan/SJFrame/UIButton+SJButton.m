@@ -115,9 +115,15 @@
 
 -(void)quicklySetNormalTextColorHex:(NSString *)colorHex highlightedTextColorHex:(NSString *)highlightTextColorHex selectedTextColorHex:(NSString *)selectedTextColorHex{
     @autoreleasepool {
-        [self setTitleColor:[UIColor colorWithHex:colorHex] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor colorWithHex:highlightTextColorHex] forState:UIControlStateHighlighted];
-        [self setTitleColor:[UIColor colorWithHex:selectedTextColorHex] forState:UIControlStateSelected];
+        if (colorHex) {
+            [self setTitleColor:[UIColor colorWithHex:colorHex] forState:UIControlStateNormal];
+        }
+        if (highlightTextColorHex) {
+            [self setTitleColor:[UIColor colorWithHex:highlightTextColorHex] forState:UIControlStateHighlighted];
+        }
+        if (selectedTextColorHex) {
+            [self setTitleColor:[UIColor colorWithHex:selectedTextColorHex] forState:UIControlStateSelected];
+        }
     }
 
 }

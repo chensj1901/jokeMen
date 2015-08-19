@@ -135,8 +135,9 @@
     if (!_listenBtn) {
         _listenBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         _listenBtn.frame=_listenBtnRect;
-        [_listenBtn quicklySetNormalImageNamed:@"listenBtn" highlightImageNamed:nil selectedImageNamed:nil];
+        [_listenBtn quicklySetNormalImageNamed:@"listenBtn" highlightImageNamed:nil selectedImageNamed:@"listenBtn_s"];
         [_listenBtn quicklySetFontPoint:14 textColorHex:@"62707d" textAlignment:NSTextAlignmentCenter title:@"爷只想听"];
+        [_listenBtn quicklySetNormalTextColorHex:@"62707d" highlightedTextColorHex:nil selectedTextColorHex:@"FF9C2E"];
     }
     return _listenBtn;
 }
@@ -177,13 +178,16 @@
 
 
 #pragma mark - 其他方法
--(void)loadJoke:(SJJoke *)joke{
+-(void)loadJoke:(SJJoke *)joke isSpeaking:(BOOL)isSpeaking{
     self.usernameLabel.text=joke.username;
     self.timeLabel.text=[SJFunction dateFormat:joke.time];
     self.contentLabel.text=joke.content;
+    self.contentLabel.textColor=isSpeaking?[UIColor colorWithHex:@"FF9C2E"]:[UIColor colorWithHex:@"62707d"];
     [self.likeBtn setTitle:[NSString stringWithFormat:@"%ld",(long)joke.likeCount] forState:UIControlStateNormal];
     [self.shareBtn setTitle:[NSString stringWithFormat:@"%ld",(long)joke.shareCount] forState:UIControlStateNormal];
     self.likeBtn.selected=joke.liked;
+    [self.likeBtn setTitleColor:[UIColor colorWithHex:@"FF9C2E"] forState:UIControlStateSelected];
+    self.listenBtn.selected=isSpeaking;
     
     CGSize contentSize=[SJJokeCell contentHeightForContent:joke.content];
     [self.contentLabel quicklySetHeight:contentSize.height+20];

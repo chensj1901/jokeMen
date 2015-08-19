@@ -14,10 +14,15 @@
 #import "SJButtonActionSheet.h"
 #import "WXApi.h"
 #import <TencentOpenAPI/QQApi.h>
+#import <AVFoundation/AVFoundation.h>
+#import <iflyMSC/iflyMSC.h>
 
-@interface SJIndexViewController ()<UITableViewDelegate,UITableViewDataSource,PullTableViewDelegate>
+@interface SJIndexViewController ()<UITableViewDelegate,UITableViewDataSource,PullTableViewDelegate,IFlySpeechSynthesizerDelegate>
 @property(nonatomic)SJIndexView *mainView;
 @property(nonatomic)SJJokeService *jokeService;
+@property (nonatomic, strong) AVSpeechSynthesizer *synthesizer;
+@property(nonatomic)IFlySpeechSynthesizer *ifSynthesizer;
+@property(nonatomic,weak)SJJoke *speakingJoke;
 @end
 
 @implementation SJIndexViewController
@@ -28,13 +33,36 @@
     return _jokeService;
 }
 
+-(AVSpeechSynthesizer *)synthesizer{
+    if (!_synthesizer) {
+        _synthesizer=[[AVSpeechSynthesizer alloc]init];
+    }
+    return _synthesizer;
+}
+
+-(IFlySpeechSynthesizer *)ifSynthesizer{
+    if (!_ifSynthesizer)
+    {
+        NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"55d42c03"];
+        [IFlySpeechUtility createUtility:initString];
+        _ifSynthesizer=[IFlySpeechSynthesizer sharedInstance];
+        _ifSynthesizer.delegate=self;
+        [_ifSynthesizer setParameter:@"100" forKey:[IFlySpeechConstant SPEED]];
+        [_ifSynthesizer setParameter:@"50" forKey: [IFlySpeechConstant VOLUME]];
+        [_ifSynthesizer setParameter:@" xiaoyan " forKey: [IFlySpeechConstant VOICE_NAME]];
+        [_ifSynthesizer setParameter:@"8000" forKey: [IFlySpeechConstant SAMPLE_RATE]];
+    }
+    return _ifSynthesizer;
+}
+
 -(void)loadUI{
     self.navigationItem.title=@"";
     
     self.mainView.detailTableView.delegate=self;
     self.mainView.detailTableView.dataSource=self;
     self.mainView.detailTableView.pullDelegate=self;
-
+    
+    [self.parentViewController quicklyCreateRightItemWithTitle:@"随机一组" titleColorHex:@"313746" titleHighlightedColorHex:nil selector:@selector(randomJoke) target:self];
 }
 
 -(void)loadTarget{
@@ -43,6 +71,7 @@
 }
 
 -(void)loadFirstJokeWithCache:(SJCacheMethod)cacheMethod{
+    
 [self.jokeService loadFirstJokeWithcacheMethod:cacheMethod success:^{
     if (cacheMethod!=SJCacheMethodOnlyCache&&self.mainView.detailTableView.pullTableIsRefreshing) {
         self.mainView.detailTableView.pullTableIsRefreshing=NO;
@@ -51,12 +80,25 @@
 } fail:^(NSError *error) {
     
 }];
+
 }
 
 -(void)loadMoreJoke{
     [self.jokeService loadMoreJokeWithSuccess:^{
         if (self.mainView.detailTableView.pullTableIsLoadingMore) {
             self.mainView.detailTableView.pullTableIsLoadingMore=NO;
+        }
+        [self.mainView.detailTableView reloadData];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+-(void)randomJoke{
+    self.mainView.detailTableView.pullTableIsRefreshing=YES;
+    [self.jokeService loadFirstRandomJokeWithcacheMethod:SJCacheMethodFail success:^{
+        if (self.mainView.detailTableView.pullTableIsRefreshing) {
+            self.mainView.detailTableView.pullTableIsRefreshing=NO;
         }
         [self.mainView.detailTableView reloadData];
     } fail:^(NSError *error) {
@@ -111,6 +153,67 @@
 
 }
 
+-(void)listen:(UIButton *)btn{
+    NSIndexPath *indexPath=[self.mainView.detailTableView indexPathForCellElement:btn];
+    SJJoke *joke=[self.jokeService.jokes safeObjectAtIndex:indexPath.row];
+    
+    if ([self.ifSynthesizer isSpeaking]&&self.speakingJoke==joke) {
+        [self stopListen];
+    }else{
+        [self listenJokeWithJoke:joke];
+    }
+}
+
+-(void)stopListen{
+    self.speakingJoke=nil;
+    [self.ifSynthesizer stopSpeaking];
+    [self.mainView.detailTableView reloadData];
+}
+
+-(void)listenJokeWithJoke:(SJJoke*)joke{
+    if (joke) {
+        self.speakingJoke=joke;
+        
+        NSInteger index=[self.jokeService.jokes getObjectIndexWithBlock:^BOOL(SJJoke* obj) {
+            return self.speakingJoke==obj;
+        }];
+        if (index==[self.jokeService.jokes count]-1) {
+            [self pullTableViewDidTriggerLoadMore:self.mainView.detailTableView];
+        }
+        
+        [self.ifSynthesizer startSpeaking:joke.content];
+        [self.mainView.detailTableView reloadData];
+    }
+}
+
+//合成结束，此代理必须要实现
+- (void) onCompleted:(IFlySpeechError *) error{
+    if (self.speakingJoke) {
+        NSInteger index=[self.jokeService.jokes getObjectIndexWithBlock:^BOOL(SJJoke* obj) {
+            return self.speakingJoke==obj;
+        }];
+        
+        
+        index++;
+        
+        SJJoke *joke=[self.jokeService.jokes safeObjectAtIndex:index];
+        [self listenJokeWithJoke:joke];
+        
+    }
+}
+
+//合成开始
+- (void) onSpeakBegin{
+}
+
+//合成缓冲进度
+- (void) onBufferProgress:(int) progress message:(NSString *)msg{
+}
+
+//合成播放进度
+- (void) onSpeakProgress:(int) progress{
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -126,10 +229,11 @@
         cell=[[SJJokeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         [cell.likeBtn addTarget:self action:@selector(like:) forControlEvents:UIControlEventTouchUpInside];
         [cell.shareBtn addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.listenBtn addTarget:self action:@selector(listen:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     SJJoke *joke=[self.jokeService.jokes safeObjectAtIndex:indexPath.row];
-    [cell loadJoke:joke];
+    [cell loadJoke:joke isSpeaking:joke==self.speakingJoke];
     return cell;
 }
 
