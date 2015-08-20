@@ -19,6 +19,7 @@
 {
     NSTimeInterval _timeInterval;
     NSInteger _page;
+    NSInteger _nid;
 }
 
 -(NSMutableArray *)jokes{
@@ -30,6 +31,13 @@
 //        }
     }
     return _jokes;
+}
+
+-(NSMutableArray *)comments{
+    if (!_comments) {
+        _comments=[[NSMutableArray alloc]init];
+    }
+    return _comments;
 }
 
 
@@ -98,6 +106,45 @@
         }
         
     }];
-
 }
+
+-(void)loadFirstCommentWithCacheMethod:(SJCacheMethod)cacheMethod nid:(NSInteger)nid success:(SJServiceSuccessBlock) success fail:(SJServiceFailBlock)fail{
+    
+    _page=1;
+    _nid=nid;
+    
+    [SJJokeURLRequest apiLoadCommentWithPage:_page nid:_nid cacheMethod:cacheMethod success:^(AFHTTPRequestOperation *op, id dic) {
+        [self.comments removeAllObjects];
+        for (NSDictionary *dictionary in [dic objectForKey:@"comments"]) {
+            SJComment *joke=[[SJComment alloc]initWithRemoteDictionary:dictionary];
+            [self.comments addObject:joke];
+        };
+        _page++;
+        if (success) {
+            success();
+        }
+    } failure:^(AFHTTPRequestOperation *op, NSError *error) {
+        if (fail) {
+            fail(error);
+        }
+    }];
+}
+
+-(void)loadMoreCommentWithSuccess:(SJServiceSuccessBlock)success fail:(SJServiceFailBlock)fail{
+    [SJJokeURLRequest apiLoadCommentWithPage:_page nid:_nid cacheMethod:SJCacheMethodFail success:^(AFHTTPRequestOperation *op, id dic) {
+        for (NSDictionary *dictionary in [dic objectForKey:@"jokes"]) {
+            SJComment *joke=[[SJComment alloc]initWithRemoteDictionary:dictionary];
+            [self.comments addObject:joke];
+        };
+        _page++;
+        if (success) {
+            success();
+        }
+    } failure:^(AFHTTPRequestOperation *op, NSError *error) {
+        if (fail) {
+            fail(error);
+        }
+    }];
+}
+
 @end

@@ -19,7 +19,6 @@
 @synthesize titleLabel=_titleLabel;
 @synthesize lineView=_lineView;
 
-
 #pragma mark - 初始化
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -59,6 +58,7 @@
     }
     return _lineView;
 }
+
 
 +(CGFloat)cellHeight{
     return 44;

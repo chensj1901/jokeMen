@@ -20,8 +20,9 @@
 @property(nonatomic,readonly)UIButton *listenBtn;
 @property(nonatomic,readonly)UIView *lineOneView;
 @property(nonatomic,readonly)UIView *lineTwoView;
+@property(nonatomic,readonly)UIView *lineThreeView;
 @property(nonatomic,readonly)UIView *lineBottomView;
-
+@property(nonatomic,readonly)UIButton *commentBtn;
 
 +(CGFloat)cellHeightWithJoke:(SJJoke *)joke;
 -(void)loadJoke:(SJJoke *)joke isSpeaking:(BOOL)isSpeaking;

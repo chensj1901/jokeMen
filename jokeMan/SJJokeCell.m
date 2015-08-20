@@ -19,9 +19,11 @@
     CGRect _shareBtnRect;
     CGRect _lineOneViewRect;
     CGRect _lineTwoViewRect;
+    CGRect _lineThreeViewRect;
     CGRect _bottomViewRect;
     CGRect _listenBtnRect;
     CGRect _lineBottomViewRect;
+    CGRect _commentBtnRect;
 }
 
 
@@ -31,8 +33,10 @@
 @synthesize contentLabel=_contentLabel;
 @synthesize likeBtn=_likeBtn;
 @synthesize shareBtn=_shareBtn;
+@synthesize commentBtn=_commentBtn;
 @synthesize lineOneView=_lineOneView;
 @synthesize lineTwoView=_lineTwoView;
+@synthesize lineThreeView=_lineThreeView;
 @synthesize bottomView=_bottomView;
 @synthesize listenBtn=_listenBtn;
 @synthesize lineBottomView=_lineBottomView;
@@ -48,17 +52,23 @@
     return self;
 }
 
+
+
 -(void)loadSetting{
+    CGFloat bBtnWidth=(WIDTH-14)/3;
+    CGFloat sBtnWidth=bBtnWidth*2/3;
     _titleImageViewRect= CGRectMake(7, 7, WIDTH-14, 30);
     _usernameLabelRect= CGRectMake(7, 0, (WIDTH-28)/2, 30);
     _timeLabelRect= CGRectMake((WIDTH-28)/2+7, 0, (WIDTH-28)/2, 30);
     _contentLabelRect= CGRectMake(7, 30, CGRectGetWidth(_titleImageViewRect)-14, 0);
     _bottomViewRect= CGRectMake(0, 0, (WIDTH-28), 40);
-    _likeBtnRect= CGRectMake(7, 0,  (WIDTH-28)/3, 40);
-    _shareBtnRect= CGRectMake((WIDTH-28)/3+7, 0,  (WIDTH-28)/3, 40);
-    _listenBtnRect= CGRectMake((WIDTH-28)/3*2+7, 0, (WIDTH-28)/3, 40);
-    _lineOneViewRect= CGRectMake(WIDTH/3-0.5, 0, 0.5, 40);
-    _lineTwoViewRect= CGRectMake(WIDTH/3*2.-0.5, 0, 0.5, 40);
+    _likeBtnRect= CGRectMake(0, 0,  sBtnWidth, 40);
+    _shareBtnRect= CGRectMake(sBtnWidth, 0,  sBtnWidth, 40);
+    _commentBtnRect= CGRectMake(sBtnWidth*2, 0,  sBtnWidth, 40);
+    _listenBtnRect= CGRectMake(bBtnWidth*2, 0, bBtnWidth , 40);
+    _lineOneViewRect= CGRectMake(sBtnWidth-0.5, 0, 0.5, 40);
+    _lineTwoViewRect= CGRectMake(sBtnWidth*2-0.5, 0, 0.5, 40);
+    _lineThreeViewRect= CGRectMake(sBtnWidth*3-0.5, 0, 0.5, 40);
     _lineBottomViewRect=CGRectMake(0, 0, WIDTH-14, 0.5);
 }
 
@@ -70,9 +80,11 @@
     [self.titleImageView addSubview:self.bottomView];
     [self.bottomView addSubview:self.likeBtn];
     [self.bottomView addSubview:self.shareBtn];
+    [self.bottomView addSubview:self.commentBtn];
     [self.bottomView addSubview:self.listenBtn];
     [self.bottomView addSubview:self.lineOneView];
     [self.bottomView addSubview:self.lineTwoView];
+    [self.bottomView addSubview:self.lineThreeView];
     [self.bottomView addSubview:self.lineBottomView];
 }
 
@@ -130,13 +142,22 @@
     }
     return _shareBtn;
 }
+-(UIButton *)commentBtn{
+    if (!_commentBtn) {
+        _commentBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        _commentBtn.frame=_commentBtnRect;
+        [_commentBtn quicklySetNormalImageNamed:@"commentBtn.png" highlightImageNamed:nil selectedImageNamed:nil];
+        [_commentBtn quicklySetFontPoint:14 textColorHex:@"62707d" textAlignment:NSTextAlignmentCenter];
+    }
+    return _commentBtn;
+}
 
 -(UIButton *)listenBtn{
     if (!_listenBtn) {
         _listenBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         _listenBtn.frame=_listenBtnRect;
         [_listenBtn quicklySetNormalImageNamed:@"listenBtn" highlightImageNamed:nil selectedImageNamed:@"listenBtn_s"];
-        [_listenBtn quicklySetFontPoint:14 textColorHex:@"62707d" textAlignment:NSTextAlignmentCenter title:@"爷只想听"];
+        [_listenBtn quicklySetFontPoint:14 textColorHex:@"62707d" textAlignment:NSTextAlignmentCenter title:@"念给朕听"];
         [_listenBtn quicklySetNormalTextColorHex:@"62707d" highlightedTextColorHex:nil selectedTextColorHex:@"FF9C2E"];
     }
     return _listenBtn;
@@ -157,6 +178,14 @@
         _lineTwoView.backgroundColorHex=@"eeF0F0";
     }
     return _lineTwoView;
+}
+
+-(UIView *)lineThreeView{
+    if (!_lineThreeView) {
+        _lineThreeView=[[UIView alloc]initWithFrame:_lineThreeViewRect];
+        _lineThreeView.backgroundColorHex=@"eeF0F0";
+    }
+    return _lineThreeView;
 }
 
 -(UIView *)lineBottomView{
@@ -185,6 +214,7 @@
     self.contentLabel.textColor=isSpeaking?[UIColor colorWithHex:@"FF9C2E"]:[UIColor colorWithHex:@"62707d"];
     [self.likeBtn setTitle:[NSString stringWithFormat:@"%ld",(long)joke.likeCount] forState:UIControlStateNormal];
     [self.shareBtn setTitle:[NSString stringWithFormat:@"%ld",(long)joke.shareCount] forState:UIControlStateNormal];
+    [self.commentBtn setTitle:[NSString stringWithFormat:@"%ld",(long)joke.commentCount] forState:UIControlStateNormal];
     self.likeBtn.selected=joke.liked;
     [self.likeBtn setTitleColor:[UIColor colorWithHex:@"FF9C2E"] forState:UIControlStateSelected];
     self.listenBtn.selected=isSpeaking;

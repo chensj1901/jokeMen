@@ -18,7 +18,26 @@
         _content = [dictionary objectForKey:@"content"];
         _likeCount = [[dictionary objectForKey:@"likeCount"]integerValue];
         _shareCount = [[dictionary objectForKey:@"shareCount"]integerValue];
+        _commentCount = [[dictionary objectForKey:@"commentCount"]integerValue];
         _time = [[dictionary objectForKey:@"time"]integerValue];
+        
+        CGFloat ofTime=[[NSDate date]timeIntervalSince1970]-_time;
+        if (ofTime<60*30) {
+            _likeCount=_likeCount%60;
+            _shareCount=_shareCount%30;
+        }else if (ofTime<60*90){
+            _likeCount=_likeCount%100;
+            _shareCount=_shareCount%50;
+        
+        }else if(ofTime<60*60*12){
+            _likeCount=_likeCount%200;
+            _shareCount=_shareCount%100;
+        
+        }else if (ofTime<60*60*24){
+            _likeCount=_likeCount%400;
+            _shareCount=_shareCount%200;
+        
+        }
     }
     return self;
 }

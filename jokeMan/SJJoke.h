@@ -17,12 +17,12 @@
 /**
  *	@brief
  */
-@property(nonatomic,readonly)NSString *username;
+@property(nonatomic)NSString *username;
 
 /**
  *	@brief
  */
-@property(nonatomic,readonly)NSString *content;
+@property(nonatomic)NSString *content;
 
 /**
  *	@brief
@@ -33,6 +33,11 @@
  *	@brief
  */
 @property(nonatomic)NSInteger shareCount;
+
+/**
+ *	@brief
+ */
+@property(nonatomic)NSInteger commentCount;
 
 /**
  *	@brief

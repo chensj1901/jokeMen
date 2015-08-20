@@ -18,6 +18,8 @@
 #import "SJNavigationController.h"
 #import <iRate.h>
 #import <SJSettingRecode.h>
+#import "SJJokeURLRequest.h"
+#import "SJJoke.h"
 
 @interface AppDelegate ()
 
@@ -35,6 +37,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+    
     [self updateUA];
     [SJSettingRecode initDB];
     // Override point for customization after application launch.
@@ -54,6 +62,9 @@
     [iRate sharedInstance].usesUntilPrompt=5;
     [iRate sharedInstance].daysUntilPrompt=3;
     
+    if (IS_IOS7()) {
+        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:60*60*4];
+    }
     return YES;
 }
 
@@ -92,6 +103,58 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    NSTimeInterval time=[[SJSettingRecode getSet:@"pushTime"]doubleValue];
+    NSTimeInterval now=[[NSDate date]timeIntervalSince1970];
+    if (now-time>60*60*2) {
+        [SJJokeURLRequest apiLoadOneJokeWithSuccess:^(AFHTTPRequestOperation *op, id dictionary) {
+            SJJoke *joke=[[SJJoke alloc]initWithRemoteDictionary:[dictionary safeObjectForKey:@"joke"]];
+            if (joke._id!=[[SJSettingRecode getSet:@"jokeId"]integerValue]) {
+                [SJSettingRecode set:@"jokeId" value:[NSString stringWithFormat:@"%ld",(long)joke._id]];
+                [SJSettingRecode set:@"pushTime" value:[NSString stringWithFormat:@"%f",now]];
+                [self sendLocationPush:joke.content];
+            }
+        } failure:^(AFHTTPRequestOperation *o, NSError *e) {
+            
+        }];
+    }else{
+//        [self sendLocationPush:@"HELLO"];
+    
+    }
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:60*60*4];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+-(void)sendLocationPush:(NSString *)string{
+    UILocalNotification *notification=[[UILocalNotification alloc]init];
+    NSDate *pushDate = [NSDate dateWithTimeIntervalSinceNow:2];
+    if (notification != nil) {
+        notification.fireDate = pushDate;
+        // 设置时区
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        // 设置重复间隔
+        notification.repeatInterval = kCFCalendarUnitDay;
+        // 推送声音
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        
+        static NSString* const KDateFormat=@"yyyy-MM-dd HH:mm";
+        NSDateFormatter* dateFormat=[[NSDateFormatter alloc] init];
+        dateFormat.dateFormat=KDateFormat;
+        
+        // 推送内容
+        notification.alertBody = [NSString stringWithFormat:@"%@",string];
+        //显示在icon上的红色圈中的数子
+        //        notification.applicationIconBadgeNumber = 1;
+        //设置userinfo 方便在之后需要撤销的时候使用
+        
+        NSDictionary *info = [NSDictionary dictionaryWithObject:@"startEdit"forKey:@"startEdit"];
+        notification.userInfo = info;
+        UIApplication *app = [UIApplication sharedApplication];
+        [app scheduleLocalNotification:notification];
+        
+    }
 }
 
 - (BOOL)application:(UIApplication *)application

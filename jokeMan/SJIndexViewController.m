@@ -16,6 +16,8 @@
 #import <TencentOpenAPI/QQApi.h>
 #import <AVFoundation/AVFoundation.h>
 #import <iflyMSC/iflyMSC.h>
+#import "SJCommentViewController.h"
+#import "SJJokeURLRequest.h"
 
 @interface SJIndexViewController ()<UITableViewDelegate,UITableViewDataSource,PullTableViewDelegate,IFlySpeechSynthesizerDelegate>
 @property(nonatomic)SJIndexView *mainView;
@@ -115,6 +117,12 @@
         joke.likeCount++;
         [self.mainView.detailTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
+    [SJJokeURLRequest apiLikeWithNid:joke._id success:^(AFHTTPRequestOperation *op, id dic) {
+        
+        
+    } failure:^(AFHTTPRequestOperation *op, NSError *error) {
+        
+    }];
 }
 
 -(void)share:(UIButton *)btn{
@@ -164,6 +172,16 @@
     }
 }
 
+-(void)comment:(UIButton *)btn{
+    NSIndexPath *indexPath=[self.mainView.detailTableView indexPathForCellElement:btn];
+    SJJoke *joke=[self.jokeService.jokes safeObjectAtIndex:indexPath.row];
+    
+    SJCommentViewController *commentVC=[[SJCommentViewController alloc]init];
+    commentVC.joke=joke;
+    [self.navigationController pushViewController:commentVC animated:YES];
+
+}
+
 -(void)stopListen{
     self.speakingJoke=nil;
     [self.ifSynthesizer stopSpeaking];
@@ -180,7 +198,7 @@
         if (index==[self.jokeService.jokes count]-1) {
             [self pullTableViewDidTriggerLoadMore:self.mainView.detailTableView];
         }
-        
+        [self.mainView.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
         [self.ifSynthesizer startSpeaking:joke.content];
         [self.mainView.detailTableView reloadData];
     }
@@ -229,6 +247,7 @@
         cell=[[SJJokeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         [cell.likeBtn addTarget:self action:@selector(like:) forControlEvents:UIControlEventTouchUpInside];
         [cell.shareBtn addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.commentBtn addTarget:self action:@selector(comment:) forControlEvents:UIControlEventTouchUpInside];
         [cell.listenBtn addTarget:self action:@selector(listen:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -242,7 +261,12 @@
     return [SJJokeCell cellHeightWithJoke:joke];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self stopListen];
+}
+
 -(void)pullTableViewDidTriggerRefresh:(PullTableView *)pullTableView{
+    [self stopListen];
     [self loadFirstJokeWithCache:SJCacheMethodNone];
 }
 

@@ -25,6 +25,15 @@
 		04A159381B6FC4BE00C085EE /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A1592C1B6FC4BE00C085EE /* whiteArrow.png */; };
 		04A159391B6FC4BE00C085EE /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A1592D1B6FC4BE00C085EE /* whiteArrow@2x.png */; };
 		3312A6461B82F80800669EAB /* SJJokeURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3312A6451B82F80800669EAB /* SJJokeURLRequest.m */; };
+		33219F3C1B85AE3000DC6AC8 /* SJCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33219F3B1B85AE3000DC6AC8 /* SJCommentViewController.m */; };
+		33219F3F1B85AE4200DC6AC8 /* SJCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33219F3E1B85AE4200DC6AC8 /* SJCommentView.m */; };
+		33219F421B85C71900DC6AC8 /* SJComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 33219F411B85C71900DC6AC8 /* SJComment.m */; };
+		33219F451B85CCF000DC6AC8 /* SJCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33219F441B85CCF000DC6AC8 /* SJCommentCell.m */; };
+		33219F471B85D54000DC6AC8 /* 私聊框底层@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33219F461B85D54000DC6AC8 /* 私聊框底层@2x.png */; };
+		33219F491B85D64C00DC6AC8 /* 聊天框@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33219F481B85D64C00DC6AC8 /* 聊天框@2x.png */; };
+		33219F4C1B85DA1D00DC6AC8 /* SJUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33219F4B1B85DA1D00DC6AC8 /* SJUserInfo.m */; };
+		33219F4F1B85E12300DC6AC8 /* SJAlertTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33219F4E1B85E12300DC6AC8 /* SJAlertTextFieldView.m */; };
+		33219F511B85E91000DC6AC8 /* shazi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33219F501B85E91000DC6AC8 /* shazi@2x.png */; };
 		3346AEBB1B7CC8E900C24D73 /* SJJokeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3346AEBA1B7CC8E900C24D73 /* SJJokeCell.m */; };
 		3346AEBE1B7CC8FD00C24D73 /* SJJoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3346AEBD1B7CC8FD00C24D73 /* SJJoke.m */; };
 		3346AEC11B7CC91400C24D73 /* SJJokeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3346AEC01B7CC91400C24D73 /* SJJokeService.m */; };
@@ -69,6 +78,7 @@
 		3350E81B1B7216AD00416935 /* 广场模块bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3350E81A1B7216AD00416935 /* 广场模块bg@2x.png */; };
 		3350E81F1B7236FF00416935 /* 4号圆角屏蔽@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3350E81E1B7236FF00416935 /* 4号圆角屏蔽@2x.png */; };
 		3354E9091B7330C700FD98BF /* SJIKnowTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3354E9081B7330C700FD98BF /* SJIKnowTipView.m */; };
+		336487801B85F34B00AB5879 /* commentBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3364877F1B85F34B00AB5879 /* commentBtn@2x.png */; };
 		3373B3FD1B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobAds.m in Sources */ = {isa = PBXBuildFile; fileRef = 3373B3F81B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobAds.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3373B3FE1B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobFullAds.m in Sources */ = {isa = PBXBuildFile; fileRef = 3373B3FA1B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobFullAds.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3373B3FF1B772EBC005A2A80 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3373B3FB1B772EBC005A2A80 /* GoogleMobileAds.framework */; };
@@ -228,6 +238,21 @@
 		0B47300A00F29DE09C489D53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3312A6441B82F80800669EAB /* SJJokeURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJokeURLRequest.h; sourceTree = "<group>"; };
 		3312A6451B82F80800669EAB /* SJJokeURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJJokeURLRequest.m; sourceTree = "<group>"; };
+		33219F3A1B85AE3000DC6AC8 /* SJCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJCommentViewController.h; sourceTree = "<group>"; };
+		33219F3B1B85AE3000DC6AC8 /* SJCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJCommentViewController.m; sourceTree = "<group>"; };
+		33219F3D1B85AE4200DC6AC8 /* SJCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJCommentView.h; sourceTree = "<group>"; };
+		33219F3E1B85AE4200DC6AC8 /* SJCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJCommentView.m; sourceTree = "<group>"; };
+		33219F401B85C71900DC6AC8 /* SJComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJComment.h; sourceTree = "<group>"; };
+		33219F411B85C71900DC6AC8 /* SJComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJComment.m; sourceTree = "<group>"; };
+		33219F431B85CCF000DC6AC8 /* SJCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJCommentCell.h; sourceTree = "<group>"; };
+		33219F441B85CCF000DC6AC8 /* SJCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJCommentCell.m; sourceTree = "<group>"; };
+		33219F461B85D54000DC6AC8 /* 私聊框底层@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "私聊框底层@2x.png"; sourceTree = "<group>"; };
+		33219F481B85D64C00DC6AC8 /* 聊天框@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "聊天框@2x.png"; sourceTree = "<group>"; };
+		33219F4A1B85DA1D00DC6AC8 /* SJUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJUserInfo.h; sourceTree = "<group>"; };
+		33219F4B1B85DA1D00DC6AC8 /* SJUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJUserInfo.m; sourceTree = "<group>"; };
+		33219F4D1B85E12300DC6AC8 /* SJAlertTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJAlertTextFieldView.h; sourceTree = "<group>"; };
+		33219F4E1B85E12300DC6AC8 /* SJAlertTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJAlertTextFieldView.m; sourceTree = "<group>"; };
+		33219F501B85E91000DC6AC8 /* shazi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shazi@2x.png"; sourceTree = "<group>"; };
 		3346AEB91B7CC8E900C24D73 /* SJJokeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJokeCell.h; sourceTree = "<group>"; };
 		3346AEBA1B7CC8E900C24D73 /* SJJokeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJJokeCell.m; sourceTree = "<group>"; };
 		3346AEBC1B7CC8FD00C24D73 /* SJJoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJoke.h; sourceTree = "<group>"; };
@@ -314,6 +339,7 @@
 		3354E9071B7330C700FD98BF /* SJIKnowTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJIKnowTipView.h; sourceTree = "<group>"; };
 		3354E9081B7330C700FD98BF /* SJIKnowTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJIKnowTipView.m; sourceTree = "<group>"; };
 		3354E90B1B73538A00FD98BF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3364877F1B85F34B00AB5879 /* commentBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "commentBtn@2x.png"; sourceTree = "<group>"; };
 		3373B3F71B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterGoogleAdMobAds.h; sourceTree = "<group>"; };
 		3373B3F81B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobAds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoGoAdapterGoogleAdMobAds.m; sourceTree = "<group>"; };
 		3373B3F91B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobFullAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterGoogleAdMobFullAds.h; sourceTree = "<group>"; };
@@ -743,6 +769,8 @@
 				3346AEBA1B7CC8E900C24D73 /* SJJokeCell.m */,
 				042C89DC1B710B1900974CA5 /* SJSettingView.h */,
 				042C89DD1B710B1900974CA5 /* SJSettingView.m */,
+				33219F3D1B85AE4200DC6AC8 /* SJCommentView.h */,
+				33219F3E1B85AE4200DC6AC8 /* SJCommentView.m */,
 				042C89DF1B710CAB00974CA5 /* SJTabSwitchView.h */,
 				042C89E01B710CAB00974CA5 /* SJTabSwitchView.m */,
 				33CADE0B1B6F9933003460BA /* SJWebView.h */,
@@ -751,6 +779,8 @@
 				3350E7011B71C07A00416935 /* SJRecommendAppView.m */,
 				3350E7021B71C07A00416935 /* SJRecommendAppCell.h */,
 				3350E7031B71C07A00416935 /* SJRecommendAppCell.m */,
+				33219F431B85CCF000DC6AC8 /* SJCommentCell.h */,
+				33219F441B85CCF000DC6AC8 /* SJCommentCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -762,6 +792,8 @@
 				338EFD1F1B70E73D005C8EB9 /* SJNavigationController.m */,
 				33CADDD61B6F88E0003460BA /* SJIndexViewController.h */,
 				33CADDD71B6F88E0003460BA /* SJIndexViewController.m */,
+				33219F3A1B85AE3000DC6AC8 /* SJCommentViewController.h */,
+				33219F3B1B85AE3000DC6AC8 /* SJCommentViewController.m */,
 				042C89D91B710B0700974CA5 /* SJSettingViewController.h */,
 				042C89DA1B710B0700974CA5 /* SJSettingViewController.m */,
 				338EFD211B70EBC0005C8EB9 /* SJIndexSwitchViewController.h */,
@@ -770,6 +802,8 @@
 				33CADE091B6F991E003460BA /* SJWebViewController.m */,
 				3350E7041B71C07A00416935 /* SJRecommendAppViewController.h */,
 				3350E7051B71C07A00416935 /* SJRecommendAppViewController.m */,
+				33219F4D1B85E12300DC6AC8 /* SJAlertTextFieldView.h */,
+				33219F4E1B85E12300DC6AC8 /* SJAlertTextFieldView.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -782,6 +816,10 @@
 				33CADDEE1B6F90FE003460BA /* SJService.m */,
 				3346AEBC1B7CC8FD00C24D73 /* SJJoke.h */,
 				3346AEBD1B7CC8FD00C24D73 /* SJJoke.m */,
+				33219F4A1B85DA1D00DC6AC8 /* SJUserInfo.h */,
+				33219F4B1B85DA1D00DC6AC8 /* SJUserInfo.m */,
+				33219F401B85C71900DC6AC8 /* SJComment.h */,
+				33219F411B85C71900DC6AC8 /* SJComment.m */,
 				3346AEBF1B7CC91400C24D73 /* SJJokeService.h */,
 				3346AEC01B7CC91400C24D73 /* SJJokeService.m */,
 				3312A6441B82F80800669EAB /* SJJokeURLRequest.h */,
@@ -1026,6 +1064,10 @@
 		33CADD711B6F87D5003460BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				33219F501B85E91000DC6AC8 /* shazi@2x.png */,
+				33219F461B85D54000DC6AC8 /* 私聊框底层@2x.png */,
+				3364877F1B85F34B00AB5879 /* commentBtn@2x.png */,
+				33219F481B85D64C00DC6AC8 /* 聊天框@2x.png */,
 				33EAFE5B1B83595E00099AE8 /* likeBtn@2x.png */,
 				33EAFE5F1B83618D00099AE8 /* likeBtn_s@2x.png */,
 				33EAFE611B83663800099AE8 /* listenBtn@2x.png */,
@@ -1229,6 +1271,7 @@
 				3350E81B1B7216AD00416935 /* 广场模块bg@2x.png in Resources */,
 				3350E7171B72078B00416935 /* 透明.png in Resources */,
 				042C89E31B7113B700974CA5 /* about.html in Resources */,
+				336487801B85F34B00AB5879 /* commentBtn@2x.png in Resources */,
 				338EFCC91B70B19E005C8EB9 /* adwo_videoMaximizeBig.png in Resources */,
 				04A159351B6FC4BE00C085EE /* blueArrow@2x.png in Resources */,
 				338EFCD41B70B19E005C8EB9 /* adwo_videoTimeRectangleBig.png in Resources */,
@@ -1279,12 +1322,15 @@
 				338EFCB01B70B19E005C8EB9 /* adwo_audio_icon.png in Resources */,
 				338EFCB11B70B19E005C8EB9 /* adwo_audioBar.png in Resources */,
 				338EFCBD1B70B19E005C8EB9 /* adwo_share2sina.png in Resources */,
+				33219F511B85E91000DC6AC8 /* shazi@2x.png in Resources */,
 				338EFCBC1B70B19E005C8EB9 /* adwo_recordSlider.png in Resources */,
 				338EFCC81B70B19E005C8EB9 /* adwo_videoMaximize.png in Resources */,
 				33CADDEC1B6F8F5D003460BA /* button@2x.png in Resources */,
+				33219F491B85D64C00DC6AC8 /* 聊天框@2x.png in Resources */,
 				338EFD171B70E215005C8EB9 /* Icon@2x.png in Resources */,
 				338EFCD01B70B19E005C8EB9 /* adwo_videoReplayBig.png in Resources */,
 				338EFCD11B70B19E005C8EB9 /* adwo_videoSound.png in Resources */,
+				33219F471B85D54000DC6AC8 /* 私聊框底层@2x.png in Resources */,
 				338EFCBF1B70B19E005C8EB9 /* adwo_uploadProgress.png in Resources */,
 				338EFCCC1B70B19E005C8EB9 /* adwo_videoMute.png in Resources */,
 				338EFCCD1B70B19E005C8EB9 /* adwo_videoMuteBig.png in Resources */,
@@ -1348,6 +1394,7 @@
 				33CADE041B6F98D6003460BA /* SJSwitchViewController.m in Sources */,
 				3350E70B1B71C08900416935 /* SJRecommendApp.m in Sources */,
 				3350E8031B720D1500416935 /* AdMoGoAdapterBaiduMobAd.m in Sources */,
+				33219F3F1B85AE4200DC6AC8 /* SJCommentView.m in Sources */,
 				042C89E11B710CAB00974CA5 /* SJTabSwitchView.m in Sources */,
 				33CADDEF1B6F90FE003460BA /* SJService.m in Sources */,
 				338EFD231B70EBC0005C8EB9 /* SJIndexSwitchViewController.m in Sources */,
@@ -1364,15 +1411,18 @@
 				338EFCAB1B70B19E005C8EB9 /* AdMoGoAdapterAdwoFullAd.m in Sources */,
 				33CADDD51B6F881E003460BA /* UIViewController+SJViewController.m in Sources */,
 				3350E70E1B71C0B200416935 /* SJRecommendAppURLRequest.m in Sources */,
+				33219F3C1B85AE3000DC6AC8 /* SJCommentViewController.m in Sources */,
 				33CADDC61B6F881E003460BA /* SJBaseViewController.m in Sources */,
 				3354E9091B7330C700FD98BF /* SJIKnowTipView.m in Sources */,
 				3350E8161B720D1500416935 /* zip.c in Sources */,
+				33219F4F1B85E12300DC6AC8 /* SJAlertTextFieldView.m in Sources */,
 				33CADDD01B6F881E003460BA /* UILabel+SJLabel.m in Sources */,
 				3350E80B1B720D1500416935 /* CJSONDeserializer_BlocksExtensions.m in Sources */,
 				33CADDCB1B6F881E003460BA /* SJRegex.m in Sources */,
 				3350E8041B720D1500416935 /* AdMoGoAdapterBaiduSplash.m in Sources */,
 				33CADDDB1B6F88FF003460BA /* SJIndexView.m in Sources */,
 				33CADDD31B6F881E003460BA /* UITextView+SJTextView.m in Sources */,
+				33219F421B85C71900DC6AC8 /* SJComment.m in Sources */,
 				3350E8021B720D1500416935 /* AdMoGoAdapterBaiduFullAds.m in Sources */,
 				3350E8141B720D1500416935 /* mztools.c in Sources */,
 				33CADDC41B6F881E003460BA /* NSFileManager+SJFileManager.m in Sources */,
@@ -1400,6 +1450,7 @@
 				3350E80F1B720D1500416935 /* NSDictionary_JSONExtensions.m in Sources */,
 				338EFAAB1B70A33C005C8EB9 /* SJButtonActionSheet.m in Sources */,
 				3346AEBB1B7CC8E900C24D73 /* SJJokeCell.m in Sources */,
+				33219F451B85CCF000DC6AC8 /* SJCommentCell.m in Sources */,
 				3373B3FE1B772EBC005A2A80 /* AdMoGoAdapterGoogleAdMobFullAds.m in Sources */,
 				3350E80C1B720D1500416935 /* CJSONSerialization.m in Sources */,
 				33CADDE21B6F8DD3003460BA /* SJSearchBar.m in Sources */,
@@ -1421,6 +1472,7 @@
 				338EFD201B70E73D005C8EB9 /* SJNavigationController.m in Sources */,
 				3350E8151B720D1500416935 /* unzip.c in Sources */,
 				338EFD131B70DEB3005C8EB9 /* SJShareCenter.m in Sources */,
+				33219F4C1B85DA1D00DC6AC8 /* SJUserInfo.m in Sources */,
 				33CADDC91B6F881E003460BA /* SJImageLabel.m in Sources */,
 				33CADDD41B6F881E003460BA /* UIView+SJView.m in Sources */,
 				3350E8171B720D1500416935 /* ZipArchive.mm in Sources */,
