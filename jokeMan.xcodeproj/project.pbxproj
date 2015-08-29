@@ -165,6 +165,7 @@
 		338EFD1D1B70E698005C8EB9 /* 返回箭头@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 338EFD1C1B70E698005C8EB9 /* 返回箭头@2x.png */; };
 		338EFD201B70E73D005C8EB9 /* SJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338EFD1F1B70E73D005C8EB9 /* SJNavigationController.m */; };
 		338EFD231B70EBC0005C8EB9 /* SJIndexSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338EFD221B70EBC0005C8EB9 /* SJIndexSwitchViewController.m */; };
+		33C5C9D41B86D2AE00944EBE /* 更多_icon_QQ.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C5C9D31B86D2AE00944EBE /* 更多_icon_QQ.png */; };
 		33CADD741B6F87D5003460BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADD731B6F87D5003460BA /* main.m */; };
 		33CADD771B6F87D5003460BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADD761B6F87D5003460BA /* AppDelegate.m */; };
 		33CADD7F1B6F87D5003460BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33CADD7E1B6F87D5003460BA /* Images.xcassets */; };
@@ -443,6 +444,7 @@
 		338EFD1F1B70E73D005C8EB9 /* SJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJNavigationController.m; sourceTree = "<group>"; };
 		338EFD211B70EBC0005C8EB9 /* SJIndexSwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJIndexSwitchViewController.h; sourceTree = "<group>"; };
 		338EFD221B70EBC0005C8EB9 /* SJIndexSwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJIndexSwitchViewController.m; sourceTree = "<group>"; };
+		33C5C9D31B86D2AE00944EBE /* 更多_icon_QQ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多_icon_QQ.png"; sourceTree = "<group>"; };
 		33CADD6E1B6F87D5003460BA /* jokeMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jokeMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33CADD721B6F87D5003460BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33CADD731B6F87D5003460BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1089,6 +1091,7 @@
 				338EFAAD1B70A3D4005C8EB9 /* 更多_icon_朋友圈.png */,
 				338EFAAE1B70A3D4005C8EB9 /* 更多_icon_微博.png */,
 				338EFAAF1B70A3D4005C8EB9 /* 更多_icon_微信.png */,
+				33C5C9D31B86D2AE00944EBE /* 更多_icon_QQ.png */,
 				338EFD141B70E12F005C8EB9 /* 更多_icon_safari.png */,
 				3350E8181B7213A200416935 /* Default_share@2x.png */,
 				33CADDEB1B6F8F5D003460BA /* button@2x.png */,
@@ -1315,6 +1318,7 @@
 				338EFAB21B70A3D4005C8EB9 /* 更多_icon_微博.png in Resources */,
 				33EAFE601B83618D00099AE8 /* likeBtn_s@2x.png in Resources */,
 				33EAFE5E1B83595E00099AE8 /* shareBtn@2x.png in Resources */,
+				33C5C9D41B86D2AE00944EBE /* 更多_icon_QQ.png in Resources */,
 				3350E81F1B7236FF00416935 /* 4号圆角屏蔽@2x.png in Resources */,
 				338EFCC41B70B19E005C8EB9 /* adwo_videoDetail.png in Resources */,
 				338EFCD21B70B19E005C8EB9 /* adwo_videoSoundBig.png in Resources */,
@@ -1581,6 +1585,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0B47300A00F29DE09C489D53 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (

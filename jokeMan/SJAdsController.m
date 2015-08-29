@@ -94,6 +94,13 @@ static SJAdsController *_adsController;
     NSLog(@"广告关闭回调");
 }
 
+-(void)adMoGoWillPresentFullScreenModal{
+    [SJAdsController shareController].adMoGoView.hidden=YES;
+}
+
+-(void)adMoGoDidDismissFullScreenModal{
+    [SJAdsController shareController].adMoGoView.hidden=NO;
+}
 #pragma mark -
 #pragma mark AdMoGoWebBrowserControllerUserDelegate delegate
 

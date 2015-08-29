@@ -56,7 +56,7 @@
     }
     
     if ([QQApi isQQInstalled]) {
-        [actionSheet addButtonWithTitle:@"QQ/Qzone" image:[UIImage imageNamed:@"更多_icon_QQ空间"] block:^{
+        [actionSheet addButtonWithTitle:@"QQ" image:[UIImage imageNamed:@"更多_icon_QQ"] block:^{
             [SJShareCenter shareTo:ShareTypeQQ url:self.webURL content:self.contentString];
         }];
     }

@@ -75,8 +75,9 @@
 -(SJTextField *)contentTextField{
     if (!_contentTextField) {
         _contentTextField=[[SJTextField alloc]initWithFrame:_contentTextFieldRect];
-        _contentTextField.background=[[UIImage imageNamed:@"聊天框.png"]resizableImageWithCapInsets:UIEdgeInsetsMake(15.5, 20.5, 15.5, 20.5)];
+        _contentTextField.background=[[UIImage imageNamed:@"聊天框.png"]resizableImageWithCapInsets:UIEdgeInsetsMake(15, 15, 15, 15)];
         _contentTextField.horizontalPadding=10;
+        _contentTextField.returnKeyType=UIReturnKeyDone;
     }
     return _contentTextField;
 }

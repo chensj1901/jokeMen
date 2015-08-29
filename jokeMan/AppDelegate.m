@@ -60,10 +60,11 @@
     
     [iRate sharedInstance].applicationBundleID=[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
     [iRate sharedInstance].usesUntilPrompt=5;
-    [iRate sharedInstance].daysUntilPrompt=3;
+    [iRate sharedInstance].daysUntilPrompt=1;
+//    [iRate sharedInstance].previewMode=YES;
     
     if (IS_IOS7()) {
-        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:60*60*4];
+        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     }
     return YES;
 }
@@ -71,13 +72,13 @@
 -(void)initPlatform{
     [ShareSDK registerApp:@"api20"];//字符串api20为您的ShareSDK的AppKey
     
-    [ShareSDK connectWeChatWithAppId:@"wx2fc4506ed5e18353"   //微信APPID
-                           appSecret:@"d350493219e33b23833327e86d856a74"  //微信APPSecret
+    [ShareSDK connectWeChatWithAppId:@"wxc1a7699a80d28c42"   //微信APPID
+                           appSecret:@"909da2f907bc42efe063e7b9a3e310f2"  //微信APPSecret
                            wechatCls:[WXApi class]];
     
     
     //添加QQ应用  注册网址   http://mobile.qq.com/api/
-    [ShareSDK connectQQWithQZoneAppKey:@"1104724651"
+    [ShareSDK connectQQWithQZoneAppKey:@"1104748389"
                      qqApiInterfaceCls:[QQApiInterface class]
                        tencentOAuthCls:[TencentOAuth class]];
     
@@ -108,8 +109,11 @@
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     NSTimeInterval time=[[SJSettingRecode getSet:@"pushTime"]doubleValue];
-    NSTimeInterval now=[[NSDate date]timeIntervalSince1970];
-    if (now-time>60*60*2) {
+    NSTimeInterval now=[[NSDate date]timeIntervalSince1970];NSDate *date = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:NSHourCalendarUnit fromDate:date];
+    
+    if (now-time>60*60*2&&[components hour]>8) {
         [SJJokeURLRequest apiLoadOneJokeWithSuccess:^(AFHTTPRequestOperation *op, id dictionary) {
             SJJoke *joke=[[SJJoke alloc]initWithRemoteDictionary:[dictionary safeObjectForKey:@"joke"]];
             if (joke._id!=[[SJSettingRecode getSet:@"jokeId"]integerValue]) {
@@ -121,13 +125,15 @@
             
         }];
     }else{
-//        [self sendLocationPush:@"HELLO"];
-    
+ 
     }
-    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:60*60*4];
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
     completionHandler(UIBackgroundFetchResultNewData);
 }
 -(void)sendLocationPush:(NSString *)string{
+    [[UIApplication sharedApplication]cancelAllLocalNotifications];
+    
     UILocalNotification *notification=[[UILocalNotification alloc]init];
     NSDate *pushDate = [NSDate dateWithTimeIntervalSinceNow:2];
     if (notification != nil) {
@@ -135,7 +141,7 @@
         // 设置时区
         notification.timeZone = [NSTimeZone defaultTimeZone];
         // 设置重复间隔
-        notification.repeatInterval = kCFCalendarUnitDay;
+        notification.repeatInterval = 0;
         // 推送声音
         notification.soundName = UILocalNotificationDefaultSoundName;
         

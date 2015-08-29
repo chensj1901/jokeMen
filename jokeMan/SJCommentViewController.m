@@ -16,7 +16,7 @@
 #import "SJAlertTextFieldView.h"
 #import <SJSettingRecode.h>
 
-@interface SJCommentViewController ()<PullTableViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface SJCommentViewController ()<PullTableViewDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property(nonatomic)SJCommentView *mainView;
 @property(nonatomic)SJJokeService *jokeService;
 @end
@@ -34,6 +34,7 @@
 -(SJCommentView *)mainView{
     if (!_mainView) {
         _mainView=[[SJCommentView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+        _mainView.contentTextField.delegate=self;
     }
     return _mainView;
 }
@@ -72,7 +73,7 @@
 -(void)sendComment{
     if ([SJUserInfo sharedUserInfo].username.length==0) {
         [SJAlertTextFieldView showInViewWithTitle:@"皇上，臣妾想知道你的名字" successBlock:^(UIView *thisView) {
-            SJAlertTextFieldView *t=thisView;
+            SJAlertTextFieldView *t=(SJAlertTextFieldView *)thisView;
             if (t.contentTextField.text.length>0) {
                 [SJSettingRecode set:@"username" value:t.contentTextField.text];
                 [self sendComment];
@@ -80,16 +81,24 @@
         }];
     }else {
         if (self.mainView.contentTextField.text.length>0) {
-            [self.mainView.contentTextField resignFirstResponder];
+            NSString *content=self.mainView.contentTextField.text;
             SJComment *comment=[[SJComment alloc]init];
             comment.username=[SJUserInfo sharedUserInfo].username;
-            comment.content=self.mainView.contentTextField.text;
+            comment.content=content;
             [self.jokeService.comments insertObject:comment atIndex:0];
             [self.mainView.detailTableView reloadData];
             
-            [SJJokeURLRequest apiSendCommentWithUsername:[SJUserInfo sharedUserInfo].username content:self.mainView.contentTextField.text nid:self.joke._id success:^(AFHTTPRequestOperation *op, id dic) {
+            
+            [self.mainView.contentTextField resignFirstResponder];
+            self.mainView.contentTextField.text=@"";
+            
+            [SJJokeURLRequest apiSendCommentWithUsername:[SJUserInfo sharedUserInfo].username content:content nid:self.joke._id success:^(AFHTTPRequestOperation *op, id dic) {
             } failure:^(AFHTTPRequestOperation *op, NSError *error) {
-                
+                alert(@"网络异常");
+                [self.jokeService.comments removeObject:comment];
+                [self.mainView.detailTableView reloadData];
+                self.mainView.contentTextField.text=content;
+                [self.mainView.contentTextField becomeFirstResponder];
             }];
         }else{
             alert(@"请输入评论内容");
@@ -126,6 +135,11 @@
     } fail:^(NSError *error) {
         
     }];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self sendComment];
+    return YES;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

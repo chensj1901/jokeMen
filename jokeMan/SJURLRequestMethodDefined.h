@@ -9,6 +9,9 @@
 #ifndef zhitu_SJURLRequestMethodDefined_h
 #define zhitu_SJURLRequestMethodDefined_h
 
+#define HOST_SITE @"http://1.jhwg.sinaapp.com/gaoxiao"
+//#define HOST_SITE @"http://localhost/jhwg/1/gaoxiao"
+
 typedef enum {
     SJCacheMethodOnlyCache,
     SJCacheMethodNone,

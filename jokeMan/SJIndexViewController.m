@@ -49,7 +49,7 @@
         [IFlySpeechUtility createUtility:initString];
         _ifSynthesizer=[IFlySpeechSynthesizer sharedInstance];
         _ifSynthesizer.delegate=self;
-        [_ifSynthesizer setParameter:@"100" forKey:[IFlySpeechConstant SPEED]];
+        [_ifSynthesizer setParameter:@"80" forKey:[IFlySpeechConstant SPEED]];
         [_ifSynthesizer setParameter:@"50" forKey: [IFlySpeechConstant VOLUME]];
         [_ifSynthesizer setParameter:@" xiaoyan " forKey: [IFlySpeechConstant VOICE_NAME]];
         [_ifSynthesizer setParameter:@"8000" forKey: [IFlySpeechConstant SAMPLE_RATE]];
@@ -129,9 +129,17 @@
     NSIndexPath *indexPath=[self.mainView.detailTableView indexPathForCellElement:btn];
     SJJoke *joke=[self.jokeService.jokes safeObjectAtIndex:indexPath.row];
     joke.shareCount++;
+    
+    [SJJokeURLRequest apiShareWithNid:joke._id success:^(AFHTTPRequestOperation *op, id dic) {
+        
+        
+    } failure:^(AFHTTPRequestOperation *op, NSError *error) {
+        
+    }];
+    
     [self.mainView.detailTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
-    NSString *content=[NSString stringWithFormat:@"%@ --来自xxx",joke.content];
+    NSString *content=[NSString stringWithFormat:@"%@ --来自《爆笑段子》app",joke.content];
     
     SJButtonActionSheet *actionSheet=[[SJButtonActionSheet alloc]initWithTitle:@""];
     
@@ -152,7 +160,7 @@
     }
     
     if ([QQApi isQQInstalled]) {
-        [actionSheet addButtonWithTitle:@"QQ" image:[UIImage imageNamed:@"更多_icon_QQ空间"] block:^{
+        [actionSheet addButtonWithTitle:@"QQ" image:[UIImage imageNamed:@"更多_icon_QQ"] block:^{
             [SJShareCenter shareTo:ShareTypeQQ url:nil content:content];
         }];
     }

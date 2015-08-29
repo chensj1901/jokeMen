@@ -8,8 +8,7 @@
 
 #import "SJJokeURLRequest.h"
 
-//#define HOST_SITE @"http://1.jhwg.sinaapp.com/gaoxiao"
-#define HOST_SITE @"http://localhost/jhwg/1/gaoxiao"
+
 
 @implementation SJJokeURLRequest
 +(void)apiLoadJokeWithPage:(NSInteger)page time:(NSTimeInterval)time cacheMethod:(SJCacheMethod)cacheMethod success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure{
@@ -43,7 +42,14 @@
 }
 +(void)apiLikeWithNid:(NSInteger)nid success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure{
     NSString *url=[NSString stringWithFormat:@"%@/op.php?op=like&nid=%ld",HOST_SITE,(long)nid];
+    
+    SJHTTPRequestOperationManager *manager=[SJHTTPRequestOperationManager  manager];
+    [manager POST:url parameters:nil cacheMethod:SJCacheMethodNone success:success failure:failure];
+}
 
++(void)apiShareWithNid:(NSInteger)nid success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure{
+    NSString *url=[NSString stringWithFormat:@"%@/op.php?op=share&nid=%ld",HOST_SITE,(long)nid];
+    
     SJHTTPRequestOperationManager *manager=[SJHTTPRequestOperationManager  manager];
     [manager POST:url parameters:nil cacheMethod:SJCacheMethodNone success:success failure:failure];
 }

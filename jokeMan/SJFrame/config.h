@@ -14,12 +14,12 @@
 #define GAME_COL_COUNT 9
 #define GAME_BLOCK_WIDTH 35
 
-#define ADS_MOGO_APPKEY @"a736890be8774f2ebf50d694c2f97959"
-#define UMENG_APPKEY @"55c071aae0f55a5c05001ba0"
+#define ADS_MOGO_APPKEY @"19a5e916b59d486f8b9b56f7b354394c"
+#define UMENG_APPKEY @"55d5f71de0f55aa49a004c85"
 
 #define BlACK_COLOR @"000000"
 #define WHITE_COLOR_HEX @"EFF1E0"
-#define APPLE_ID @""
+#define APPLE_ID @"1032594586"
 
 #define SYSTEM_VERSION ([[[UIDevice currentDevice]systemVersion]doubleValue])
 

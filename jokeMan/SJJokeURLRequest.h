@@ -14,5 +14,6 @@
 +(void)apiLoadOneJokeWithSuccess:(void (^)(AFHTTPRequestOperation *op, id dic))success failure:(void (^)(AFHTTPRequestOperation *op, NSError *error))failure;
 +(void)apiSendCommentWithUsername:(NSString *)username content:(NSString *)comment nid:(NSInteger)nid success:(void (^)(AFHTTPRequestOperation *op, id dic))success failure:(void (^)(AFHTTPRequestOperation *op, NSError *error))failure;
 +(void)apiLikeWithNid:(NSInteger)nid success:(void (^)(AFHTTPRequestOperation *op, id dic))success failure:(void (^)(AFHTTPRequestOperation *op, NSError *error))failure;
++(void)apiShareWithNid:(NSInteger)nid success:(void (^)(AFHTTPRequestOperation *op, id dic))success failure:(void (^)(AFHTTPRequestOperation *op, NSError *error))failure;
 
 @end

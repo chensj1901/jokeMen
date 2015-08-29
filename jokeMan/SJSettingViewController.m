@@ -96,17 +96,17 @@
         
         if ([WXApi isWXAppInstalled]) {
         [actionSheet addButtonWithTitle:@"微信好友" image:[UIImage imageNamed:@"更多_icon_微信"] block:^{
-            [SJShareCenter shareTo:ShareTypeWeixiSession url:appIndexURL content:@"好东西，网盘搜索神器，强烈推荐！"];
+            [SJShareCenter shareTo:ShareTypeWeixiSession url:appIndexURL content:@"这个真心不能错过，笑死俺了！"];
         }];
         
         [actionSheet addButtonWithTitle:@"朋友圈" image:[UIImage imageNamed:@"更多_icon_朋友圈"] block:^{
-            [SJShareCenter shareTo:ShareTypeWeixiTimeline url:appIndexURL content:@"好东西，网盘搜索神器，强烈推荐！"];
+            [SJShareCenter shareTo:ShareTypeWeixiTimeline url:appIndexURL content:@"这个真心不能错过，笑死俺了！"];
         }];
         }
         
         if ([QQApi isQQInstalled]) {
-        [actionSheet addButtonWithTitle:@"QQ" image:[UIImage imageNamed:@"更多_icon_QQ空间"] block:^{
-            [SJShareCenter shareTo:ShareTypeQQ url:appIndexURL content:@"好东西，网盘搜索神器，强烈推荐！"];
+        [actionSheet addButtonWithTitle:@"QQ" image:[UIImage imageNamed:@"更多_icon_QQ"] block:^{
+            [SJShareCenter shareTo:ShareTypeQQ url:appIndexURL content:@"这个真心不能错过，笑死俺了！"];
         }];
         }
         
