@@ -188,8 +188,8 @@
 		33CADDD31B6F881E003460BA /* UITextView+SJTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADDBD1B6F881E003460BA /* UITextView+SJTextView.m */; };
 		33CADDD41B6F881E003460BA /* UIView+SJView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADDBF1B6F881E003460BA /* UIView+SJView.m */; };
 		33CADDD51B6F881E003460BA /* UIViewController+SJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADDC11B6F881E003460BA /* UIViewController+SJViewController.m */; };
-		33CADDD81B6F88E0003460BA /* SJIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADDD71B6F88E0003460BA /* SJIndexViewController.m */; };
-		33CADDDB1B6F88FF003460BA /* SJIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADDDA1B6F88FF003460BA /* SJIndexView.m */; };
+		33CADDD81B6F88E0003460BA /* SJJokeIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADDD71B6F88E0003460BA /* SJJokeIndexViewController.m */; };
+		33CADDDB1B6F88FF003460BA /* SJJokeIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADDDA1B6F88FF003460BA /* SJJokeIndexView.m */; };
 		33CADDE21B6F8DD3003460BA /* SJSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CADDE11B6F8DD3003460BA /* SJSearchBar.m */; };
 		33CADDE51B6F8DF1003460BA /* 搜索底框_@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CADDE31B6F8DF1003460BA /* 搜索底框_@3x.png */; };
 		33CADDE61B6F8DF1003460BA /* 搜索底框_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CADDE41B6F8DF1003460BA /* 搜索底框_@2x.png */; };
@@ -491,10 +491,10 @@
 		33CADDBF1B6F881E003460BA /* UIView+SJView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SJView.m"; sourceTree = "<group>"; };
 		33CADDC01B6F881E003460BA /* UIViewController+SJViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SJViewController.h"; sourceTree = "<group>"; };
 		33CADDC11B6F881E003460BA /* UIViewController+SJViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SJViewController.m"; sourceTree = "<group>"; };
-		33CADDD61B6F88E0003460BA /* SJIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJIndexViewController.h; sourceTree = "<group>"; };
-		33CADDD71B6F88E0003460BA /* SJIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJIndexViewController.m; sourceTree = "<group>"; };
-		33CADDD91B6F88FF003460BA /* SJIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJIndexView.h; sourceTree = "<group>"; };
-		33CADDDA1B6F88FF003460BA /* SJIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJIndexView.m; sourceTree = "<group>"; };
+		33CADDD61B6F88E0003460BA /* SJJokeIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJokeIndexViewController.h; sourceTree = "<group>"; };
+		33CADDD71B6F88E0003460BA /* SJJokeIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJJokeIndexViewController.m; sourceTree = "<group>"; };
+		33CADDD91B6F88FF003460BA /* SJJokeIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJJokeIndexView.h; sourceTree = "<group>"; };
+		33CADDDA1B6F88FF003460BA /* SJJokeIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJJokeIndexView.m; sourceTree = "<group>"; };
 		33CADDDD1B6F8CD4003460BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		33CADDE01B6F8DD3003460BA /* SJSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJSearchBar.h; path = SJFrame/SJSearchBar.h; sourceTree = "<group>"; };
 		33CADDE11B6F8DD3003460BA /* SJSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJSearchBar.m; path = SJFrame/SJSearchBar.m; sourceTree = "<group>"; };
@@ -763,8 +763,8 @@
 			children = (
 				33CADDE01B6F8DD3003460BA /* SJSearchBar.h */,
 				33CADDE11B6F8DD3003460BA /* SJSearchBar.m */,
-				33CADDD91B6F88FF003460BA /* SJIndexView.h */,
-				33CADDDA1B6F88FF003460BA /* SJIndexView.m */,
+				33CADDD91B6F88FF003460BA /* SJJokeIndexView.h */,
+				33CADDDA1B6F88FF003460BA /* SJJokeIndexView.m */,
 				042C89E41B7119F000974CA5 /* SJSettingCell.h */,
 				042C89E51B7119F000974CA5 /* SJSettingCell.m */,
 				3346AEB91B7CC8E900C24D73 /* SJJokeCell.h */,
@@ -792,8 +792,8 @@
 			children = (
 				338EFD1E1B70E73D005C8EB9 /* SJNavigationController.h */,
 				338EFD1F1B70E73D005C8EB9 /* SJNavigationController.m */,
-				33CADDD61B6F88E0003460BA /* SJIndexViewController.h */,
-				33CADDD71B6F88E0003460BA /* SJIndexViewController.m */,
+				33CADDD61B6F88E0003460BA /* SJJokeIndexViewController.h */,
+				33CADDD71B6F88E0003460BA /* SJJokeIndexViewController.m */,
 				33219F3A1B85AE3000DC6AC8 /* SJCommentViewController.h */,
 				33219F3B1B85AE3000DC6AC8 /* SJCommentViewController.m */,
 				042C89D91B710B0700974CA5 /* SJSettingViewController.h */,
@@ -1424,7 +1424,7 @@
 				3350E80B1B720D1500416935 /* CJSONDeserializer_BlocksExtensions.m in Sources */,
 				33CADDCB1B6F881E003460BA /* SJRegex.m in Sources */,
 				3350E8041B720D1500416935 /* AdMoGoAdapterBaiduSplash.m in Sources */,
-				33CADDDB1B6F88FF003460BA /* SJIndexView.m in Sources */,
+				33CADDDB1B6F88FF003460BA /* SJJokeIndexView.m in Sources */,
 				33CADDD31B6F881E003460BA /* UITextView+SJTextView.m in Sources */,
 				33219F421B85C71900DC6AC8 /* SJComment.m in Sources */,
 				3350E8021B720D1500416935 /* AdMoGoAdapterBaiduFullAds.m in Sources */,
@@ -1437,7 +1437,7 @@
 				33CADDC51B6F881E003460BA /* NSString+SJString.m in Sources */,
 				33CADDD11B6F881E003460BA /* UITableView+SJTableView.m in Sources */,
 				33CADE0D1B6F9933003460BA /* SJWebView.m in Sources */,
-				33CADDD81B6F88E0003460BA /* SJIndexViewController.m in Sources */,
+				33CADDD81B6F88E0003460BA /* SJJokeIndexViewController.m in Sources */,
 				04A1592E1B6FC4BE00C085EE /* EGORefreshTableHeaderView.m in Sources */,
 				3350E80D1B720D1500416935 /* CJSONSerializedData.m in Sources */,
 				3346AEBE1B7CC8FD00C24D73 /* SJJoke.m in Sources */,

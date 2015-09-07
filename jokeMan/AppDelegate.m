@@ -20,6 +20,7 @@
 #import <SJSettingRecode.h>
 #import "SJJokeURLRequest.h"
 #import "SJJoke.h"
+#import "SJAdsController.h"
 
 @interface AppDelegate ()
 
@@ -42,6 +43,7 @@
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
+    [SJAdsController showPushAds];
     
     [self updateUA];
     [SJSettingRecode initDB];

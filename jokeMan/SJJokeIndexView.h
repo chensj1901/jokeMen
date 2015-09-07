@@ -10,6 +10,6 @@
 #import "SJSearchBar.h"
 #import "PullTableView.h"
 
-@interface SJIndexView : UIView
+@interface SJJokeIndexView : UIView
 @property(nonatomic,readonly)PullTableView *detailTableView;
 @end

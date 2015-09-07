@@ -7,14 +7,14 @@
 //
 
 #import "SJIndexSwitchViewController.h"
-#import "SJIndexViewController.h"
+#import "SJJokeIndexViewController.h"
 #import "SJSettingViewController.h"
 #import "SJTabSwitchView.h"
 #import "SJAdsController.h"
 
 @interface SJIndexSwitchViewController ()
 @property(nonatomic)SJTabSwitchView *tabSwitchView;
-@property(nonatomic)SJIndexViewController *indexVC;
+@property(nonatomic)SJJokeIndexViewController *indexVC;
 @property(nonatomic)SJSettingViewController *settingVC;
 @end
 
@@ -75,9 +75,9 @@
     self.tabSwitchView.settingBtn.selected=index==1;
 }
 
--(SJIndexViewController *)indexVC{
+-(SJJokeIndexViewController *)indexVC{
     if (!_indexVC) {
-        _indexVC=[[SJIndexViewController alloc]init];
+        _indexVC=[[SJJokeIndexViewController alloc]init];
     }
     return _indexVC;
 }

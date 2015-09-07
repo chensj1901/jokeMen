@@ -12,7 +12,7 @@
 
 +(void)shareTo:(ShareType)shareType url:(NSString *)url content:(NSString *)cStr{
     [MobClick event:@"02-01"];
-    NSString *titleStr=@"爆笑段子";
+    NSString *titleStr=@"百思不得其姐";
     NSMutableString *contentStr=[NSMutableString stringWithString:cStr];
     NSString *urlStr=url;
     

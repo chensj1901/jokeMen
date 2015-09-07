@@ -16,4 +16,5 @@
 +(SJAdsController*)shareController;
 +(void)showAdsBanner;
 +(void)removeAdsBanner;
++(void)showPushAds;
 @end

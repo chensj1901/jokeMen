@@ -8,6 +8,6 @@
 
 #import "SJBaseViewController.h"
 
-@interface SJIndexViewController : SJBaseViewController
+@interface SJJokeIndexViewController : SJBaseViewController
 
 @end

@@ -211,13 +211,10 @@
 }
 -(void) didAdClicked{
     MGLog(MGT,@"%s",__func__);
-    
+    [MobClick event:@"01_05"];
     if (isStop) {
         return;
     }
-
-    
-    
     
     [adMoGoCore performSelectorOnMainThread:@selector(sdkplatformSendCLK:) withObject:self waitUntilDone:NO];
 }

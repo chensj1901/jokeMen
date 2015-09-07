@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 陈少杰. All rights reserved.
 //
 
-#import "SJIndexView.h"
+#import "SJJokeIndexView.h"
 #import "SJFrame.h"
 
-@implementation SJIndexView
+@implementation SJJokeIndexView
 {
     CGRect _detailTableViewRect;
 }

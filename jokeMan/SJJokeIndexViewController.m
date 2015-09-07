@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 陈少杰. All rights reserved.
 //
 
-#import "SJIndexViewController.h"
-#import "SJIndexView.h"
+#import "SJJokeIndexViewController.h"
+#import "SJJokeIndexView.h"
 #import "SJJokeService.h"
 #import "SJJokeCell.h"
 #import "SJShareCenter.h"
@@ -19,15 +19,15 @@
 #import "SJCommentViewController.h"
 #import "SJJokeURLRequest.h"
 
-@interface SJIndexViewController ()<UITableViewDelegate,UITableViewDataSource,PullTableViewDelegate,IFlySpeechSynthesizerDelegate>
-@property(nonatomic)SJIndexView *mainView;
+@interface SJJokeIndexViewController ()<UITableViewDelegate,UITableViewDataSource,PullTableViewDelegate,IFlySpeechSynthesizerDelegate>
+@property(nonatomic)SJJokeIndexView *mainView;
 @property(nonatomic)SJJokeService *jokeService;
 @property (nonatomic, strong) AVSpeechSynthesizer *synthesizer;
 @property(nonatomic)IFlySpeechSynthesizer *ifSynthesizer;
 @property(nonatomic,weak)SJJoke *speakingJoke;
 @end
 
-@implementation SJIndexViewController
+@implementation SJJokeIndexViewController
 -(SJJokeService *)jokeService{
     if (!_jokeService) {
         _jokeService=[[SJJokeService alloc]init];
@@ -49,7 +49,7 @@
         [IFlySpeechUtility createUtility:initString];
         _ifSynthesizer=[IFlySpeechSynthesizer sharedInstance];
         _ifSynthesizer.delegate=self;
-        [_ifSynthesizer setParameter:@"80" forKey:[IFlySpeechConstant SPEED]];
+        [_ifSynthesizer setParameter:@"55" forKey:[IFlySpeechConstant SPEED]];
         [_ifSynthesizer setParameter:@"50" forKey: [IFlySpeechConstant VOLUME]];
         [_ifSynthesizer setParameter:@" xiaoyan " forKey: [IFlySpeechConstant VOICE_NAME]];
         [_ifSynthesizer setParameter:@"8000" forKey: [IFlySpeechConstant SAMPLE_RATE]];
